@@ -889,6 +889,81 @@
   /* ANIMATIONS */
   .fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
   .fade-in.visible{opacity:1;transform:translateY(0)}
+
+  /* FAQ */
+  .faq{background:var(--beige-soft)}
+  .faq-list{max-width:780px;margin:0 auto;display:grid;gap:12px}
+  .faq-item{
+    background:#fff;border-radius:var(--radius);
+    border:1px solid rgba(74,98,56,.09);
+    overflow:hidden;
+    transition:border-color .25s, box-shadow .25s;
+  }
+  .faq-item:hover{border-color:var(--sage);box-shadow:var(--shadow-sm)}
+  .faq-item.open{border-color:var(--green);box-shadow:var(--shadow-sm)}
+  .faq-q{
+    width:100%;text-align:left;padding:22px 26px;
+    font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:600;
+    color:var(--green-dark);background:none;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    transition:background .2s;
+  }
+  .faq-q:hover{background:var(--beige)}
+  .faq-item.open .faq-q{background:var(--beige)}
+  .faq-icon{
+    flex-shrink:0;width:30px;height:30px;border-radius:50%;
+    background:var(--beige);border:1px solid rgba(74,98,56,.14);
+    display:grid;place-items:center;
+    transition:background .25s, transform .4s;
+  }
+  .faq-icon svg{width:14px;height:14px;stroke:var(--green-dark);fill:none;stroke-width:2.5;transition:stroke .25s}
+  .faq-item.open .faq-icon{background:var(--green-dark);transform:rotate(45deg)}
+  .faq-item.open .faq-icon svg{stroke:#fff}
+  .faq-a{
+    max-height:0;overflow:hidden;
+    transition:max-height .42s ease, padding .32s ease;
+    padding:0 26px;
+  }
+  .faq-item.open .faq-a{max-height:320px;padding:0 26px 24px}
+  .faq-a p{color:var(--muted);font-size:.97rem;line-height:1.72}
+  .faq-a a{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  @media(max-width:480px){
+    .faq-q{padding:18px 20px;font-size:1.05rem}
+    .faq-item.open .faq-a{padding:0 20px 20px}
+  }
+
+  /* MOBILE BOTTOM CTA BAR */
+  .mobile-bar{
+    display:none;
+    position:fixed;bottom:0;left:0;right:0;z-index:70;
+    background:rgba(251,247,236,.97);
+    backdrop-filter:blur(14px);
+    border-top:1px solid rgba(74,98,56,.14);
+    padding:10px 16px;
+    padding-bottom:calc(10px + env(safe-area-inset-bottom));
+    gap:10px;
+  }
+  @media(max-width:680px){
+    .mobile-bar{display:flex}
+    .float-wa{display:none}
+    footer{padding-bottom:calc(30px + 68px)}
+  }
+  .mobile-bar a{
+    flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 12px;border-radius:999px;font-weight:600;font-size:.93rem;
+    transition:transform .2s, box-shadow .2s, background .2s;
+  }
+  .mobile-bar .mb-call{
+    background:transparent;color:var(--green-dark);
+    border:1.5px solid var(--green-dark);
+  }
+  .mobile-bar .mb-call:hover{background:var(--green-dark);color:#fff}
+  .mobile-bar .mb-wa{
+    background:#25D366;color:#fff;
+    box-shadow:0 4px 14px rgba(37,211,102,.32);
+  }
+  .mobile-bar .mb-wa:hover{background:#1ebe5a;transform:translateY(-1px)}
+  .mobile-bar svg{width:18px;height:18px;flex-shrink:0}
 </style>
 </head>
 <body class="loading">
@@ -1046,15 +1121,15 @@
 
     <div class="ba-stats fade-in">
       <div class="ba-stat">
-        <span class="num">100<span>%</span></span>
+        <span class="num" data-count="100" data-prefix="" data-suffix="%">100<span>%</span></span>
         <span class="lbl" data-en="Ready for check-in">Listos para check-in</span>
       </div>
       <div class="ba-stat">
-        <span class="num">+50</span>
+        <span class="num" data-count="50" data-prefix="+" data-suffix="">+50</span>
         <span class="lbl" data-en="Apartments served">Apartamentos atendidos</span>
       </div>
       <div class="ba-stat">
-        <span class="num">24<span>h</span></span>
+        <span class="num" data-count="24" data-prefix="" data-suffix="h">24<span>h</span></span>
         <span class="lbl" data-en="Availability">Disponibilidad</span>
       </div>
     </div>
@@ -1380,6 +1455,80 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="faq">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="eyebrow" data-en="FAQ">Preguntas frecuentes</span>
+      <h2 class="display">
+        <span data-en="Still have">¿Tienes alguna</span>
+        <span class="script" data-en="questions?">pregunta?</span>
+      </h2>
+      <p data-en="Here are the most common questions from holiday apartment owners.">Las preguntas más habituales de los propietarios de apartamentos turísticos.</p>
+    </div>
+
+    <div class="faq-list fade-in">
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span data-en="How much does a cleaning cost?">¿Cuánto cuesta una limpieza?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" role="region"><p data-en="The price depends on the size of the apartment and the service you need. We have three packs (Essential, Complete and Premium) but we also prepare custom quotes. Contact us on WhatsApp and we'll reply in minutes.">El precio depende del tamaño del apartamento y el servicio que necesites. Tenemos tres packs (Esencial, Completo y Premium) pero también hacemos presupuestos personalizados. <a href="https://wa.me/34616255553">Escríbenos por WhatsApp</a> y te respondemos en minutos.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span data-en="Do you bring your own cleaning supplies?">¿Traéis vosotros el material de limpieza?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" role="region"><p data-en="Yes. We bring all the necessary products and equipment to carry out the service. You don't need to worry about anything.">Sí. Traemos todos los productos y materiales necesarios para realizar el servicio. Tú no tienes que preocuparte de nada.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span data-en="How long does a cleaning take?">¿Cuánto tiempo tarda una limpieza?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" role="region"><p data-en="It depends on the size of the apartment and the type of service. A studio or small apartment can be done in 1 to 1.5 hours. For larger spaces or deeper cleans we'll give you an estimated time when we agree on the visit.">Depende del tamaño del apartamento y el tipo de servicio. Un estudio o apartamento pequeño puede estar listo en 1 a 1,5 horas. Para espacios más grandes o limpiezas más profundas te indicamos el tiempo estimado cuando acordamos la visita.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span data-en="Do you work at weekends and on bank holidays?">¿Trabajáis los fines de semana y festivos?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" role="region"><p data-en="Yes, we offer service 7 days a week. We know that holiday apartments don't follow office hours, so we adapt to your booking calendar including weekends and bank holidays.">Sí, ofrecemos servicio 7 días a la semana. Sabemos que los apartamentos turísticos no entienden de horarios de oficina, así que nos adaptamos a tu calendario de reservas incluyendo fines de semana y festivos.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span data-en="Can I book a one-off clean or do I need a contract?">¿Puedo pedir una limpieza puntual o hay contrato mínimo?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" role="region"><p data-en="No minimum contract. You can request a one-off clean whenever you need it. That said, many owners choose to work with us on a regular basis because it's simpler and more reliable.">No hay contrato mínimo. Puedes pedir una limpieza puntual cuando lo necesites. Dicho esto, muchos propietarios eligen trabajar con nosotros de forma habitual porque es más cómodo y fiable.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span data-en="What if I need the service at short notice?">¿Qué pasa si necesito el servicio con poco tiempo?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" role="region"><p data-en="We do our best to accommodate last-minute requests. Write to us on WhatsApp as soon as you know and we'll check our availability right away. Fast response is one of our priorities.">Hacemos lo posible por cubrir peticiones de última hora. Escríbenos por WhatsApp en cuanto lo sepas y miramos disponibilidad al momento. La respuesta rápida es una de nuestras prioridades.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          <span data-en="What areas do you cover?">¿En qué zonas trabajáis?</span>
+          <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-a" role="region"><p data-en="We cover the main holiday areas of the Cabo de Gata-Níjar Natural Park: Níjar, San José, Las Negras and Agua Amarga, as well as nearby towns. If you're not sure whether we reach you, just ask!">Cubrimos las principales zonas turísticas del Parque Natural Cabo de Gata-Níjar: Níjar, San José, Las Negras y Agua Amarga, así como localidades cercanas. Si no sabes si llegamos a tu zona, ¡pregúntanos!</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contacto" class="contact">
   <div class="container">
@@ -1542,6 +1691,18 @@
 <a href="https://wa.me/34616255553" class="float-wa" aria-label="WhatsApp Rosario Clean">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+<!-- MOBILE BOTTOM CTA BAR -->
+<div class="mobile-bar" role="complementary" aria-label="Contacto rápido">
+  <a href="tel:+34616255553" class="mb-call" aria-label="Llamar a Rosario Clean">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <span data-en="Call">Llamar</span>
+  </a>
+  <a href="https://wa.me/34616255553" class="mb-wa" aria-label="WhatsApp Rosario Clean">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span data-en="WhatsApp">WhatsApp</span>
+  </a>
+</div>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -1733,6 +1894,63 @@
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowLeft') navigate(-1);
       else if (e.key === 'ArrowRight') navigate(1);
+    });
+  })();
+
+  // FAQ accordion
+  (function () {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const btn = item.querySelector('.faq-q');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  })();
+
+  // Animated counters
+  (function () {
+    document.querySelectorAll('.num[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count, 10);
+      const prefix = el.dataset.prefix || '';
+      const suffixSpan = el.querySelector('span');
+      let ran = false;
+
+      const run = () => {
+        if (ran) return;
+        ran = true;
+        const duration = 1600;
+        const t0 = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - t0) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 4);
+          const val = Math.round(eased * target);
+          if (suffixSpan) {
+            // Update text node before the suffix span
+            const tn = el.firstChild;
+            if (tn && tn.nodeType === 3) tn.textContent = prefix + val;
+          } else {
+            el.textContent = prefix + val;
+          }
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+
+      const obs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) { run(); obs.disconnect(); }
+      }, { threshold: 0.5 });
+      obs.observe(el);
     });
   })();
 
