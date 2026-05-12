@@ -36,7 +36,7 @@
   "name": "Rosario Clean Apartamentos",
   "image": "imagenes/rosario3.jpeg",
   "description": "Limpieza profesional de apartamentos turísticos en Níjar, San José, Las Negras y Agua Amarga. Cambio de sábanas, preparación check-in y servicio rápido de confianza.",
-  "telephone": "+34616255553",
+  "telephone": "+34634149607",
   "priceRange": "€€",
   "address": {
     "@type": "PostalAddress",
@@ -52,7 +52,7 @@
   ],
   "serviceType": ["Limpieza de apartamentos turísticos", "Cambio de sábanas y toallas", "Preparación check-in", "Entrega de llaves"],
   "openingHours": "Mo-Su 08:00-20:00",
-  "sameAs": ["https://wa.me/34616255553"]
+  "sameAs": ["https://wa.me/34634149607"]
 }
 </script>
 
@@ -436,6 +436,10 @@
   }
   .compare-img.before{background-position:0% 0%}
   .compare-img.after{background-position:100% 0%;clip-path:inset(0 0 0 var(--split, 50%))}
+  /* Separate-image mode (data-before / data-after) */
+  .compare[data-before] .compare-img{background-size:cover;background-position:center}
+  .compare[data-before] .compare-img.before{background-position:center}
+  .compare[data-before] .compare-img.after{background-position:center}
   .compare-label{
     position:absolute;top:14px;
     background:rgba(20,30,15,.78);backdrop-filter:blur(6px);
@@ -591,6 +595,20 @@
   }
   .price-amount .pending svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.8}
   .price-amount small{display:block;color:var(--muted);font-size:.8rem;margin-top:4px;letter-spacing:.04em}
+  .price-val{
+    display:block;
+    font-family:'Cormorant Garamond',serif;font-size:2.9rem;font-weight:700;
+    color:var(--green-dark);line-height:1;margin-bottom:4px;
+  }
+  .price-val sup{
+    font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:700;
+    color:var(--gold);vertical-align:super;line-height:0;
+  }
+  .price-val .from{
+    display:block;font-family:'Inter',sans-serif;
+    font-size:.66rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.24em;color:var(--muted);margin-bottom:6px;
+  }
   .price-features{list-style:none;display:grid;gap:12px;margin-bottom:28px;flex:1}
   .price-features li{display:flex;gap:10px;align-items:flex-start;font-size:.94rem;color:var(--text)}
   .price-features li svg{
@@ -869,6 +887,14 @@
   footer a{color:var(--gold-light);transition:color .2s}
   footer a:hover{color:#fff}
 
+  /* FOOTER LEGAL LINKS */
+  .footer-link{
+    background:none;border:none;color:var(--gold-light);
+    font:inherit;font-size:.86rem;cursor:pointer;padding:0;
+    transition:color .2s;text-decoration:underline;text-underline-offset:3px;
+  }
+  .footer-link:hover{color:#fff}
+
   /* FLOATING WHATSAPP */
   .float-wa{
     position:fixed;bottom:20px;right:20px;z-index:60;
@@ -889,6 +915,19 @@
   /* ANIMATIONS */
   .fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
   .fade-in.visible{opacity:1;transform:translateY(0)}
+
+  /* ACTIVE NAV */
+  .nav-links a.nav-active:not(.nav-cta){
+    color:var(--green) !important;
+    position:relative;
+  }
+  .nav-links a.nav-active:not(.nav-cta)::after{
+    content:'';position:absolute;bottom:-3px;left:0;right:0;
+    height:2px;background:var(--green);border-radius:2px;
+  }
+
+  /* PARALLAX HERO */
+  .hero-image img{will-change:transform;transform-origin:center top}
 
   /* FAQ */
   .faq{background:var(--beige-soft)}
@@ -931,6 +970,114 @@
     .faq-q{padding:18px 20px;font-size:1.05rem}
     .faq-item.open .faq-a{padding:0 20px 20px}
   }
+
+  /* COOKIE BANNER */
+  .cookie-bar{
+    position:fixed;bottom:0;left:0;right:0;z-index:65;
+    background:var(--green-dark);
+    padding:16px 28px;
+    display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+    border-top:1px solid rgba(212,185,140,.2);
+    transform:translateY(100%);transition:transform .45s cubic-bezier(.22,1,.36,1);
+    box-shadow:0 -8px 30px rgba(0,0,0,.22);
+  }
+  .cookie-bar.show{transform:translateY(0)}
+  @media(max-width:680px){.cookie-bar{bottom:68px;gap:12px;padding:14px 18px}}
+  .cookie-text{flex:1;font-size:.87rem;color:rgba(251,247,236,.82);line-height:1.55;min-width:200px}
+  .cookie-text a{color:var(--gold-light);text-decoration:underline;text-underline-offset:3px}
+  .cookie-btns{display:flex;gap:8px;flex-shrink:0}
+  .cookie-accept{
+    background:var(--gold);color:var(--green-dark);
+    padding:9px 22px;border-radius:999px;border:none;cursor:pointer;
+    font-weight:700;font-size:.87rem;font-family:inherit;
+    transition:background .2s;white-space:nowrap;
+  }
+  .cookie-accept:hover{background:var(--gold-light)}
+  .cookie-reject{
+    background:transparent;color:rgba(251,247,236,.7);
+    padding:9px 16px;border-radius:999px;border:1px solid rgba(251,247,236,.22);
+    cursor:pointer;font-size:.87rem;font-family:inherit;
+    transition:border-color .2s, color .2s;white-space:nowrap;
+  }
+  .cookie-reject:hover{border-color:rgba(251,247,236,.55);color:var(--cream)}
+
+  /* LEGAL MODAL */
+  .legal-modal{
+    position:fixed;inset:0;z-index:9500;
+    background:rgba(15,25,12,.88);backdrop-filter:blur(8px);
+    display:flex;align-items:flex-start;justify-content:center;
+    padding:32px 20px 48px;
+    overflow-y:auto;
+    opacity:0;visibility:hidden;
+    transition:opacity .3s, visibility .3s;
+  }
+  .legal-modal.open{opacity:1;visibility:visible}
+  body.legal-open{overflow:hidden}
+  .legal-box{
+    background:var(--cream);border-radius:var(--radius-lg);
+    padding:48px 52px;max-width:800px;width:100%;
+    position:relative;box-shadow:0 30px 80px rgba(0,0,0,.45);
+    margin:auto;
+  }
+  @media(max-width:680px){.legal-box{padding:32px 24px}}
+  .legal-close{
+    position:absolute;top:20px;right:20px;
+    width:40px;height:40px;border-radius:50%;
+    background:var(--beige);border:1px solid rgba(74,98,56,.15);
+    color:var(--green-dark);cursor:pointer;
+    display:grid;place-items:center;
+    transition:background .2s, transform .2s;
+  }
+  .legal-close:hover{background:var(--green-dark);color:#fff;transform:rotate(90deg)}
+  .legal-close svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2}
+  .legal-box h1{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);
+    font-weight:700;color:var(--green-dark);margin-bottom:6px;padding-right:48px;
+  }
+  .legal-updated{font-size:.78rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;display:block}
+  .legal-box h2{
+    font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;
+    color:var(--green-dark);margin:28px 0 10px;padding-top:8px;
+    border-top:1px solid rgba(74,98,56,.1);
+  }
+  .legal-box h2:first-of-type{border-top:none;margin-top:0}
+  .legal-box p{color:var(--muted);font-size:.94rem;line-height:1.74;margin-bottom:10px}
+  .legal-box ul{list-style:disc;margin:0 0 12px 20px}
+  .legal-box li{color:var(--muted);font-size:.94rem;line-height:1.7;margin-bottom:4px}
+  .legal-box strong{color:var(--text)}
+  .legal-box a{color:var(--green);text-underline-offset:3px}
+
+  /* SCROLL TO TOP */
+  .back-top{
+    position:fixed;bottom:90px;right:20px;z-index:59;
+    width:44px;height:44px;border-radius:50%;
+    background:var(--green-dark);color:var(--cream);border:none;cursor:pointer;
+    display:grid;place-items:center;
+    box-shadow:0 4px 16px rgba(0,0,0,.22);
+    opacity:0;visibility:hidden;transform:translateY(12px);
+    transition:opacity .3s, visibility .3s, transform .3s, background .2s;
+  }
+  .back-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+  .back-top:hover{background:var(--green)}
+  .back-top svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  @media(max-width:680px){.back-top{bottom:calc(68px + 14px);right:14px}}
+
+  /* TOAST */
+  .toast{
+    position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);
+    z-index:9000;
+    background:var(--green-dark);color:var(--cream);
+    padding:13px 22px;border-radius:999px;
+    font-size:.92rem;font-weight:500;
+    display:inline-flex;align-items:center;gap:10px;
+    box-shadow:0 8px 28px rgba(0,0,0,.22);
+    opacity:0;visibility:hidden;
+    transition:opacity .35s, visibility .35s, transform .35s;
+    pointer-events:none;white-space:nowrap;
+  }
+  .toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .toast svg{width:18px;height:18px;stroke:var(--gold-light);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  @media(max-width:680px){.toast{bottom:calc(68px + 16px);font-size:.85rem;padding:11px 18px}}
 
   /* MOBILE BOTTOM CTA BAR */
   .mobile-bar{
@@ -1020,7 +1167,7 @@
         </h1>
         <p class="lead" data-en="Fast, reliable service for holiday rentals. We get it ready between guests so your next reservation walks into a perfect space.">Servicio rápido y de confianza para apartamentos turísticos. Lo dejamos listo entre huéspedes para que tu próxima reserva entre a un espacio perfecto.</p>
         <div class="hero-ctas">
-          <a href="https://wa.me/34616255553" class="btn btn-primary">
+          <a href="https://wa.me/34634149607" class="btn btn-primary">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             <span data-en="Get a quote">Pedir presupuesto</span>
           </a>
@@ -1210,6 +1357,102 @@
           <span class="ba-tag"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14 2 9.2h7.6z"/></svg><span data-en="Real result">Resultado real</span></span>
         </div>
       </div>
+
+      <div class="ba-card fade-in">
+        <div class="compare" data-before="imagenes/menaje_antes.jpeg" data-after="imagenes/menaje_despues.jpeg">
+          <div class="compare-img before" style="background-image:url('imagenes/menaje_antes.jpeg')"></div>
+          <div class="compare-img after" style="background-image:url('imagenes/menaje_despues.jpeg')"></div>
+          <span class="compare-label before-lbl" data-en="Before">Antes</span>
+          <span class="compare-label after-lbl" data-en="After">Después</span>
+          <div class="compare-divider"></div>
+          <div class="compare-handle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg></div>
+          <span class="compare-hint"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg><span data-en="Drag to compare">Arrastra para comparar</span></span>
+        </div>
+        <div class="ba-card-body">
+          <div>
+            <h3 data-en="Shelves and crockery">Baldas y menaje</h3>
+            <p data-en="Organised, spotless and ready for guests to use.">Ordenado, impecable y listo para que los huéspedes lo usen.</p>
+          </div>
+          <span class="ba-tag"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14 2 9.2h7.6z"/></svg><span data-en="Real result">Resultado real</span></span>
+        </div>
+      </div>
+
+      <div class="ba-card fade-in">
+        <div class="compare" data-before="imagenes/cocina_antes.jpeg" data-after="imagenes/cocina_despues.jpeg">
+          <div class="compare-img before" style="background-image:url('imagenes/cocina_antes.jpeg')"></div>
+          <div class="compare-img after" style="background-image:url('imagenes/cocina_despues.jpeg')"></div>
+          <span class="compare-label before-lbl" data-en="Before">Antes</span>
+          <span class="compare-label after-lbl" data-en="After">Después</span>
+          <div class="compare-divider"></div>
+          <div class="compare-handle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg></div>
+          <span class="compare-hint"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg><span data-en="Drag to compare">Arrastra para comparar</span></span>
+        </div>
+        <div class="ba-card-body">
+          <div>
+            <h3 data-en="Kitchen counter">Encimera de cocina</h3>
+            <p data-en="From greasy and disorganised to clean and ready in one visit.">De grasienta y desordenada a limpia y lista en una visita.</p>
+          </div>
+          <span class="ba-tag"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14 2 9.2h7.6z"/></svg><span data-en="Real result">Resultado real</span></span>
+        </div>
+      </div>
+
+      <div class="ba-card fade-in">
+        <div class="compare" data-before="imagenes/habitacion_antes.jpeg" data-after="imagenes/habitacion_despues.jpeg">
+          <div class="compare-img before" style="background-image:url('imagenes/habitacion_antes.jpeg')"></div>
+          <div class="compare-img after" style="background-image:url('imagenes/habitacion_despues.jpeg')"></div>
+          <span class="compare-label before-lbl" data-en="Before">Antes</span>
+          <span class="compare-label after-lbl" data-en="After">Después</span>
+          <div class="compare-divider"></div>
+          <div class="compare-handle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg></div>
+          <span class="compare-hint"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg><span data-en="Drag to compare">Arrastra para comparar</span></span>
+        </div>
+        <div class="ba-card-body">
+          <div>
+            <h3 data-en="Master bedroom">Dormitorio principal</h3>
+            <p data-en="Bed made to perfection, fresh linen and towels folded ready for guests.">Cama perfecta, ropa fresca y toallas dobladas listas para recibir.</p>
+          </div>
+          <span class="ba-tag"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14 2 9.2h7.6z"/></svg><span data-en="Real result">Resultado real</span></span>
+        </div>
+      </div>
+
+      <div class="ba-card fade-in">
+        <div class="compare" data-before="imagenes/bano_antes.jpeg" data-after="imagenes/bano2.jpeg">
+          <div class="compare-img before" style="background-image:url('imagenes/bano_antes.jpeg')"></div>
+          <div class="compare-img after" style="background-image:url('imagenes/bano2.jpeg')"></div>
+          <span class="compare-label before-lbl" data-en="Before">Antes</span>
+          <span class="compare-label after-lbl" data-en="After">Después</span>
+          <div class="compare-divider"></div>
+          <div class="compare-handle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg></div>
+          <span class="compare-hint"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg><span data-en="Drag to compare">Arrastra para comparar</span></span>
+        </div>
+        <div class="ba-card-body">
+          <div>
+            <h3 data-en="Full bathroom">Baño completo</h3>
+            <p data-en="Spotless tiles, gleaming bath and every detail in place.">Azulejos impecables, bañera reluciente y cada detalle en su sitio.</p>
+          </div>
+          <span class="ba-tag"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14 2 9.2h7.6z"/></svg><span data-en="Real result">Resultado real</span></span>
+        </div>
+      </div>
+
+      <div class="ba-card fade-in">
+        <div class="compare" data-before="imagenes/salon_antes.jpeg" data-after="imagenes/salon_despues.jpeg">
+          <div class="compare-img before" style="background-image:url('imagenes/salon_antes.jpeg')"></div>
+          <div class="compare-img after" style="background-image:url('imagenes/salon_despues.jpeg')"></div>
+          <span class="compare-label before-lbl" data-en="Before">Antes</span>
+          <span class="compare-label after-lbl" data-en="After">Después</span>
+          <div class="compare-divider"></div>
+          <div class="compare-handle"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg></div>
+          <span class="compare-hint"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg><span data-en="Drag to compare">Arrastra para comparar</span></span>
+        </div>
+        <div class="ba-card-body">
+          <div>
+            <h3 data-en="Living room">Salón</h3>
+            <p data-en="From guests' leftovers to a welcoming, tidy space in no time.">Del desorden al acogedor en una sola visita.</p>
+          </div>
+          <span class="ba-tag"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14 2 9.2h7.6z"/></svg><span data-en="Real result">Resultado real</span></span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1320,11 +1563,8 @@
         <div class="price-name" data-en="Essential">Esencial</div>
         <p class="price-tagline" data-en="Quick clean between guests for back-to-back bookings.">Limpieza rápida entre huéspedes para reservas seguidas.</p>
         <div class="price-amount">
-          <span class="pending">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            <span data-en="Price to be confirmed">Precio a confirmar</span>
-          </span>
-          <small data-en="Final pricing pending">Pendiente de tarifa oficial</small>
+          <span class="price-val">55 <sup>€</sup></span>
+          <small data-en="per service · approx. 1–2 h">por servicio · aprox. 1–2 h</small>
         </div>
         <ul class="price-features">
           <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Kitchen and bathroom cleaning">Limpieza de cocina y baños</span></li>
@@ -1334,18 +1574,15 @@
           <li class="muted"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg><span data-en="Linen and towel change">Cambio de sábanas y toallas</span></li>
           <li class="muted"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg><span data-en="Key handover">Entrega de llaves</span></li>
         </ul>
-        <a href="https://wa.me/34616255553?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Esencial%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
+        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Esencial%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
       </div>
 
       <div class="price-card featured fade-in">
         <div class="price-name" data-en="Complete">Completo</div>
         <p class="price-tagline" data-en="Everything needed to leave the apartment ready from check-in to check-in.">Todo lo necesario para dejar el apartamento listo de check-in a check-in.</p>
         <div class="price-amount">
-          <span class="pending">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            <span data-en="Price to be confirmed">Precio a confirmar</span>
-          </span>
-          <small data-en="Final pricing pending">Pendiente de tarifa oficial</small>
+          <span class="price-val"><span class="from" data-en="from">desde</span>75 <sup>€</sup></span>
+          <small data-en="per service · linen change included">por servicio · cambio de lencería incluido</small>
         </div>
         <ul class="price-features">
           <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Everything in the Essential pack">Todo lo del pack Esencial</span></li>
@@ -1355,18 +1592,15 @@
           <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Inspection and reporting">Revisión y control de estado</span></li>
           <li class="muted"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg><span data-en="Key handover and pickup">Entrega y recogida de llaves</span></li>
         </ul>
-        <a href="https://wa.me/34616255553?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Completo%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
+        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Completo%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
       </div>
 
       <div class="price-card fade-in">
         <div class="price-name" data-en="Premium">Premium</div>
         <p class="price-tagline" data-en="Full service with key management and personal attention.">Servicio integral con gestión de llaves y atención personalizada.</p>
         <div class="price-amount">
-          <span class="pending">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            <span data-en="Price to be confirmed">Precio a confirmar</span>
-          </span>
-          <small data-en="Final pricing pending">Pendiente de tarifa oficial</small>
+          <span class="price-val"><span class="from" data-en="from">desde</span>95 <sup>€</sup></span>
+          <small data-en="full service · keys &amp; guest welcome included">servicio integral · llaves y bienvenida incluidos</small>
         </div>
         <ul class="price-features">
           <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Everything in the Complete pack">Todo lo del pack Completo</span></li>
@@ -1376,7 +1610,7 @@
           <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Incident reports">Reportes de incidencias</span></li>
           <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Priority availability">Disponibilidad prioritaria</span></li>
         </ul>
-        <a href="https://wa.me/34616255553?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Premium%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
+        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Premium%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
       </div>
     </div>
 
@@ -1407,9 +1641,13 @@
           <span class="area-pill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-en="And nearby">Y alrededores</span></span>
         </div>
       </div>
-      <div class="area-card fade-in">
+      <div class="area-card fade-in" style="overflow:hidden;padding:0;background:#000">
         <span class="area-card-tag">Cabo de Gata</span>
-        <img src="imagenes/rosario.jpeg" alt="Rosario Clean Apartamentos · Servicio en Níjar, San José, Las Negras y Agua Amarga" data-en-alt="Rosario Clean Apartments · Serving Níjar, San José, Las Negras and Agua Amarga" />
+        <iframe
+          src="https://maps.google.com/maps?q=Níjar,+Almería,+España&t=&z=11&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="100%" style="border:0;display:block;width:100%;height:100%;min-height:340px;filter:saturate(.85)"
+          loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+          title="Zona de servicio Rosario Clean · Níjar y Cabo de Gata"></iframe>
       </div>
     </div>
   </div>
@@ -1451,6 +1689,46 @@
         <img src="imagenes/rosario3.jpeg" alt="Logo y branding Rosario Clean" loading="lazy" />
         <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
       </div>
+      <div class="gallery-item tall" data-src="imagenes/bano.jpeg" data-alt="Baño limpio y reluciente">
+        <img src="imagenes/bano.jpeg" alt="Baño limpio y reluciente" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item wide" data-src="imagenes/terraza.jpeg" data-alt="Terraza preparada para los huéspedes">
+        <img src="imagenes/terraza.jpeg" alt="Terraza preparada para los huéspedes" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item" data-src="imagenes/salon.jpeg" data-alt="Salón impecable tras la limpieza">
+        <img src="imagenes/salon.jpeg" alt="Salón impecable tras la limpieza" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item" data-src="imagenes/cocina_despues.jpeg" data-alt="Cocina perfectamente limpia">
+        <img src="imagenes/cocina_despues.jpeg" alt="Cocina perfectamente limpia" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item" data-src="imagenes/menaje_despues.jpeg" data-alt="Menaje y baldas ordenadas">
+        <img src="imagenes/menaje_despues.jpeg" alt="Menaje y baldas ordenadas" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item wide" data-src="imagenes/apartamento.jpeg" data-alt="Vista general del apartamento listo para huéspedes">
+        <img src="imagenes/apartamento.jpeg" alt="Vista general del apartamento listo para huéspedes" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item" data-src="imagenes/habitacion_twin.jpeg" data-alt="Habitación con dos camas individuales preparadas">
+        <img src="imagenes/habitacion_twin.jpeg" alt="Habitación con dos camas individuales preparadas" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item" data-src="imagenes/habitacion_despues.jpeg" data-alt="Dormitorio doble preparado para check-in">
+        <img src="imagenes/habitacion_despues.jpeg" alt="Dormitorio doble preparado para check-in" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item" data-src="imagenes/cocina2.jpeg" data-alt="Cocina completa limpia y organizada">
+        <img src="imagenes/cocina2.jpeg" alt="Cocina completa limpia y organizada" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
+      <div class="gallery-item" data-src="imagenes/salon_despues.jpeg" data-alt="Salón luminoso y ordenado tras la limpieza">
+        <img src="imagenes/salon_despues.jpeg" alt="Salón luminoso y ordenado tras la limpieza" loading="lazy" />
+        <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
+      </div>
     </div>
   </div>
 </section>
@@ -1474,7 +1752,7 @@
           <span data-en="How much does a cleaning cost?">¿Cuánto cuesta una limpieza?</span>
           <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
         </button>
-        <div class="faq-a" role="region"><p data-en="The price depends on the size of the apartment and the service you need. We have three packs (Essential, Complete and Premium) but we also prepare custom quotes. Contact us on WhatsApp and we'll reply in minutes.">El precio depende del tamaño del apartamento y el servicio que necesites. Tenemos tres packs (Esencial, Completo y Premium) pero también hacemos presupuestos personalizados. <a href="https://wa.me/34616255553">Escríbenos por WhatsApp</a> y te respondemos en minutos.</p></div>
+        <div class="faq-a" role="region"><p data-en="The price depends on the size of the apartment and the service you need. We have three packs (Essential, Complete and Premium) but we also prepare custom quotes. Contact us on WhatsApp and we'll reply in minutes.">El precio depende del tamaño del apartamento y el servicio que necesites. Tenemos tres packs (Esencial, Completo y Premium) pero también hacemos presupuestos personalizados. <a href="https://wa.me/34634149607">Escríbenos por WhatsApp</a> y te respondemos en minutos.</p></div>
       </div>
 
       <div class="faq-item">
@@ -1558,7 +1836,7 @@
             </span>
             <div>
               <small data-en="Phone">Teléfono</small>
-              <a href="tel:+34616255553">616 255 553</a>
+              <a href="tel:+34634149607">634 149 607</a>
             </div>
           </li>
           <li>
@@ -1567,7 +1845,7 @@
             </span>
             <div>
               <small>WhatsApp</small>
-              <a href="https://wa.me/34616255553" data-en="Message us directly">Escríbenos directo</a>
+              <a href="https://wa.me/34634149607" data-en="Message us directly">Escríbenos directo</a>
             </div>
           </li>
           <li>
@@ -1668,7 +1946,13 @@
     </div>
     <p style="margin-top:18px;max-width:520px;margin-left:auto;margin-right:auto" data-en="Professional cleaning for holiday apartments in Níjar and Cabo de Gata. Fast and reliable service.">Limpieza profesional de apartamentos turísticos en Níjar y Cabo de Gata. Servicio rápido y de confianza.</p>
     <div class="footer-bottom">
-      © <span id="year"></span> Rosario Clean Apartamentos · <a href="https://wa.me/34616255553">616 255 553</a>
+      © <span id="year"></span> Rosario Clean Apartamentos · <a href="https://wa.me/34634149607">634 149 607</a>
+      &nbsp;·&nbsp;
+      <button class="footer-link" data-legal="aviso">Aviso Legal</button>
+      &nbsp;·&nbsp;
+      <button class="footer-link" data-legal="privacidad">Privacidad</button>
+      &nbsp;·&nbsp;
+      <button class="footer-link" data-legal="cookies">Cookies</button>
     </div>
   </div>
 </footer>
@@ -1687,18 +1971,130 @@
   <img class="lightbox-img" src="" alt="" />
 </div>
 
+<!-- SCROLL TO TOP -->
+<button class="back-top" id="backTop" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toastMsg">Abriendo WhatsApp…</span>
+</div>
+
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/34616255553" class="float-wa" aria-label="WhatsApp Rosario Clean">
+<a href="https://wa.me/34634149607" class="float-wa" aria-label="WhatsApp Rosario Clean">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- COOKIE BANNER -->
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Aviso de cookies">
+  <p class="cookie-text">Usamos cookies propias para recordar tu idioma y preferencias. No rastreamos ni cedemos datos a terceros. <button class="cookie-text-link" data-legal="cookies" style="background:none;border:none;padding:0;font:inherit;color:var(--gold-light);text-decoration:underline;text-underline-offset:3px;cursor:pointer">Política de cookies</button>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-reject" id="cookieReject">Solo necesarias</button>
+    <button class="cookie-accept" id="cookieAccept">Aceptar</button>
+  </div>
+</div>
+
+<!-- LEGAL MODAL -->
+<div class="legal-modal" id="legalModal" aria-hidden="true" role="dialog" aria-label="Información legal">
+  <div class="legal-box">
+    <button class="legal-close" id="legalClose" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+    </button>
+
+    <!-- AVISO LEGAL -->
+    <div id="legalAviso" hidden>
+      <h1>Aviso Legal</h1>
+      <span class="legal-updated">Última actualización: mayo 2025</span>
+
+      <h2>1. Datos identificativos del titular</h2>
+      <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSICE), se informa:</p>
+      <ul>
+        <li><strong>Denominación:</strong> Rosario Clean Apartamentos</li>
+        <li><strong>Actividad:</strong> Servicio de limpieza de apartamentos turísticos</li>
+        <li><strong>Domicilio:</strong> Níjar, Almería, España</li>
+        <li><strong>Teléfono / WhatsApp:</strong> <a href="tel:+34634149607">634 149 607</a></li>
+      </ul>
+
+      <h2>2. Objeto y ámbito de aplicación</h2>
+      <p>El presente Aviso Legal regula el acceso y uso del sitio web de Rosario Clean Apartamentos. El acceso y navegación implican la aceptación de las presentes condiciones.</p>
+
+      <h2>3. Propiedad intelectual</h2>
+      <p>Todos los contenidos del sitio web (textos, imágenes, diseño y código) son propiedad de Rosario Clean Apartamentos o de sus legítimos titulares. Queda prohibida su reproducción, distribución o comunicación pública sin autorización expresa.</p>
+
+      <h2>4. Exclusión de responsabilidad</h2>
+      <p>Rosario Clean Apartamentos no se responsabiliza de los daños derivados del uso del sitio web ni de la información contenida en él. La empresa se reserva el derecho a modificar, suspender o interrumpir el acceso al sitio sin previo aviso.</p>
+
+      <h2>5. Legislación aplicable</h2>
+      <p>El presente Aviso Legal se rige por la legislación española. Para cualquier controversia derivada del uso de este sitio web, las partes se someten a los juzgados y tribunales de Almería.</p>
+    </div>
+
+    <!-- POLÍTICA DE PRIVACIDAD -->
+    <div id="legalPrivacidad" hidden>
+      <h1>Política de Privacidad</h1>
+      <span class="legal-updated">Última actualización: mayo 2025</span>
+
+      <h2>1. Responsable del tratamiento</h2>
+      <ul>
+        <li><strong>Denominación:</strong> Rosario Clean Apartamentos</li>
+        <li><strong>Domicilio:</strong> Níjar, Almería, España</li>
+        <li><strong>Contacto:</strong> <a href="tel:+34634149607">634 149 607</a></li>
+      </ul>
+
+      <h2>2. Datos que recopilamos</h2>
+      <p>A través del formulario de contacto de este sitio web se pueden recopilar los siguientes datos:</p>
+      <ul>
+        <li>Nombre</li>
+        <li>Número de teléfono (opcional)</li>
+        <li>Zona de servicio y tipo de apartamento</li>
+        <li>Mensaje libre con detalles del servicio solicitado</li>
+      </ul>
+      <p>Estos datos se transmiten directamente mediante WhatsApp y <strong>no se almacenan en ningún servidor</strong> propio de este sitio web.</p>
+
+      <h2>3. Finalidad y legitimación</h2>
+      <p>Los datos facilitados se utilizan exclusivamente para <strong>atender su consulta y elaborar un presupuesto</strong>. La base jurídica del tratamiento es el consentimiento del interesado (art. 6.1.a RGPD).</p>
+
+      <h2>4. Conservación de los datos</h2>
+      <p>Los datos se conservarán durante el tiempo necesario para gestionar la consulta y, en su caso, la relación contractual, así como para cumplir con las obligaciones legales aplicables.</p>
+
+      <h2>5. Destinatarios</h2>
+      <p>No se ceden datos a terceros salvo obligación legal. La comunicación se realiza a través de WhatsApp (Meta Platforms Ireland Ltd.), cuya política de privacidad está disponible en <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">whatsapp.com</a>.</p>
+
+      <h2>6. Sus derechos</h2>
+      <p>Puede ejercer en cualquier momento los derechos de <strong>acceso, rectificación, supresión, portabilidad, limitación y oposición</strong> contactando a través del teléfono <a href="tel:+34634149607">634 149 607</a>.</p>
+      <p>También tiene derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener">aepd.es</a>).</p>
+    </div>
+
+    <!-- POLÍTICA DE COOKIES -->
+    <div id="legalCookies" hidden>
+      <h1>Política de Cookies</h1>
+      <span class="legal-updated">Última actualización: mayo 2025</span>
+
+      <h2>¿Qué son las cookies?</h2>
+      <p>Las cookies son pequeños archivos que se almacenan en su dispositivo cuando visita un sitio web. Permiten que el sitio recuerde sus preferencias entre visitas.</p>
+
+      <h2>Cookies que usamos</h2>
+      <p>Este sitio web utiliza únicamente <strong>cookies propias de carácter técnico</strong>, necesarias para el correcto funcionamiento:</p>
+      <ul>
+        <li><strong>rosario_lang</strong> — Recuerda el idioma seleccionado (ES / EN). Duración: indefinida.</li>
+        <li><strong>rosario_cookies</strong> — Guarda si ha aceptado o rechazado este aviso. Duración: indefinida.</li>
+      </ul>
+      <p>No utilizamos cookies de seguimiento, publicidad ni analítica de terceros.</p>
+
+      <h2>Cómo desactivarlas</h2>
+      <p>Puede configurar su navegador para rechazar o eliminar las cookies en cualquier momento. Tenga en cuenta que algunas funciones del sitio (como el idioma) pueden dejar de funcionar si las desactiva.</p>
+    </div>
+  </div>
+</div>
+
 <!-- MOBILE BOTTOM CTA BAR -->
 <div class="mobile-bar" role="complementary" aria-label="Contacto rápido">
-  <a href="tel:+34616255553" class="mb-call" aria-label="Llamar a Rosario Clean">
+  <a href="tel:+34634149607" class="mb-call" aria-label="Llamar a Rosario Clean">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
     <span data-en="Call">Llamar</span>
   </a>
-  <a href="https://wa.me/34616255553" class="mb-wa" aria-label="WhatsApp Rosario Clean">
+  <a href="https://wa.me/34634149607" class="mb-wa" aria-label="WhatsApp Rosario Clean">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span data-en="WhatsApp">WhatsApp</span>
   </a>
@@ -1795,15 +2191,70 @@
     loader.addEventListener('click', (e) => { if (e.target === loader) hide(); });
   })();
 
+  // Scroll animations with stagger for grid children
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const parent = el.parentElement;
+      // Find direct siblings that also have fade-in
+      const siblings = parent
+        ? Array.from(parent.children).filter(c => c.classList.contains('fade-in'))
+        : [el];
+      if (siblings.length >= 2) {
+        // Stagger group: animate all unvisited siblings with cascading delay
+        const pending = siblings.filter(s => !s.classList.contains('visible'));
+        pending.forEach((sib, i) => {
+          const delay = i * 100;
+          sib.style.transitionDelay = delay + 'ms';
+          sib.classList.add('visible');
+          io.unobserve(sib);
+          // Clear delay after animation finishes so it doesn't linger
+          setTimeout(() => { sib.style.transitionDelay = ''; }, delay + 850);
+        });
+      } else {
+        el.classList.add('visible');
+        io.unobserve(el);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // Hero parallax
+  (function () {
+    const hero = document.querySelector('.hero');
+    const img  = document.querySelector('.hero-image img');
+    if (!img || !hero) return;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (hero.getBoundingClientRect().bottom > 0) {
+          img.style.transform = 'translateY(' + (window.scrollY * 0.18) + 'px) scale(1.12)';
+        }
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // Active nav section highlight
+  (function () {
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const links    = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    if (!sections.length || !links.length) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        links.forEach(a => {
+          a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id);
+        });
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    sections.forEach(s => obs.observe(s));
+  })();
 
   // Compare sliders (antes/después interactivos)
   (function () {
@@ -1897,6 +2348,58 @@
     });
   })();
 
+  // Cookie banner
+  (function () {
+    const bar = document.getElementById('cookieBar');
+    if (!bar) return;
+    const KEY = 'rosario_cookies';
+    try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+    setTimeout(() => bar.classList.add('show'), 1400);
+    const hide = (val) => {
+      bar.classList.remove('show');
+      try { localStorage.setItem(KEY, val); } catch (e) {}
+      setTimeout(() => bar.remove(), 500);
+    };
+    document.getElementById('cookieAccept').addEventListener('click', () => hide('accepted'));
+    document.getElementById('cookieReject').addEventListener('click', () => hide('rejected'));
+  })();
+
+  // Legal modals
+  (function () {
+    const modal = document.getElementById('legalModal');
+    if (!modal) return;
+    const sections = { aviso: 'legalAviso', privacidad: 'legalPrivacidad', cookies: 'legalCookies' };
+
+    const open = (type) => {
+      Object.values(sections).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.hidden = true;
+      });
+      const target = document.getElementById(sections[type]);
+      if (target) target.hidden = false;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('legal-open');
+      modal.scrollTop = 0;
+    };
+
+    const close = () => {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('legal-open');
+    };
+
+    document.querySelectorAll('[data-legal]').forEach(btn => {
+      btn.addEventListener('click', () => open(btn.dataset.legal));
+    });
+
+    document.getElementById('legalClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) close();
+    });
+  })();
+
   // FAQ accordion
   (function () {
     document.querySelectorAll('.faq-item').forEach(item => {
@@ -1986,9 +2489,32 @@
       lines.push('', t.closing);
 
       const text = encodeURIComponent(lines.join('\n'));
-      window.open(`https://wa.me/34616255553?text=${text}`, '_blank', 'noopener');
+
+      // Toast feedback
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      if (toast) {
+        const lang = (window.__getLang && window.__getLang()) || 'es';
+        toastMsg.textContent = lang === 'en' ? 'Opening WhatsApp…' : 'Abriendo WhatsApp…';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+
+      window.open(`https://wa.me/34634149607?text=${text}`, '_blank', 'noopener');
     });
   }
+
+  // Scroll to top button
+  (function () {
+    const btn = document.getElementById('backTop');
+    if (!btn) return;
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('show', window.scrollY > 400);
+    }, { passive: true });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
 </script>
 
 </body>
