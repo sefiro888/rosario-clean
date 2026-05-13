@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title data-en="Rosario Clean Apartments · Professional cleaning in Níjar">Rosario Clean Apartamentos · Limpieza profesional en Níjar</title>
-<meta name="description" data-en-content="Professional cleaning of holiday apartments in Níjar, San José, Las Negras and Agua Amarga. Linen changes, check-in preparation and fast reliable service." content="Limpieza profesional de apartamentos turísticos en Níjar, San José, Las Negras y Agua Amarga. Cambio de sábanas, preparación check-in y servicio rápido de confianza." />
+<title data-en="Rosario Clean Apartments · Professional cleaning in San José and Pozo de los Frailes">Rosario Clean Apartamentos · Limpieza profesional en San José y Pozo de los Frailes</title>
+<meta name="description" data-en-content="Professional cleaning of holiday apartments in San José and Pozo de los Frailes. Linen changes, check-in preparation and fast reliable service." content="Limpieza profesional de apartamentos turísticos en San José y Pozo de los Frailes. Cambio de sábanas, preparación check-in y servicio rápido de confianza." />
 <meta name="theme-color" content="#3D4F2C" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="es_ES" />
-<meta property="og:title" content="Rosario Clean Apartamentos · Limpieza profesional en Níjar" />
-<meta property="og:description" content="Servicio rápido y de confianza para apartamentos turísticos en Níjar, San José, Las Negras y Agua Amarga. Tu apartamento, siempre impecable." />
+<meta property="og:title" content="Rosario Clean Apartamentos · Limpieza profesional en San José y Pozo de los Frailes" />
+<meta property="og:description" content="Servicio rápido y de confianza para apartamentos turísticos en San José y Pozo de los Frailes. Tu apartamento, siempre impecable." />
 <meta property="og:image" content="imagenes/rosario3.jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="1200" />
@@ -20,7 +20,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Rosario Clean Apartamentos" />
-<meta name="twitter:description" content="Limpieza profesional de apartamentos turísticos en Níjar y Cabo de Gata." />
+<meta name="twitter:description" content="Limpieza profesional de apartamentos turísticos en San José y Pozo de los Frailes." />
 <meta name="twitter:image" content="imagenes/rosario3.jpeg" />
 
 <!-- Favicon SVG -->
@@ -35,7 +35,7 @@
   "@id": "#rosarioclean",
   "name": "Rosario Clean Apartamentos",
   "image": "imagenes/rosario3.jpeg",
-  "description": "Limpieza profesional de apartamentos turísticos en Níjar, San José, Las Negras y Agua Amarga. Cambio de sábanas, preparación check-in y servicio rápido de confianza.",
+  "description": "Limpieza profesional de apartamentos turísticos en San José y Pozo de los Frailes. Cambio de sábanas, preparación check-in y servicio rápido de confianza.",
   "telephone": "+34634149607",
   "priceRange": "€€",
   "address": {
@@ -45,10 +45,8 @@
     "addressCountry": "ES"
   },
   "areaServed": [
-    { "@type": "City", "name": "Níjar" },
     { "@type": "City", "name": "San José" },
-    { "@type": "City", "name": "Las Negras" },
-    { "@type": "City", "name": "Agua Amarga" }
+    { "@type": "City", "name": "Pozo de los Frailes" }
   ],
   "serviceType": ["Limpieza de apartamentos turísticos", "Cambio de sábanas y toallas", "Preparación check-in", "Entrega de llaves"],
   "openingHours": "Mo-Su 08:00-20:00",
@@ -97,7 +95,12 @@
   @media(max-width:480px){.container{padding:0 18px}}
 
   .display{font-family:'Cormorant Garamond', serif;font-weight:600;letter-spacing:-.01em;line-height:1.15;color:var(--green-dark)}
-  .script{font-family:'Sacramento', cursive;font-weight:400;color:var(--green-dark)}
+  .script{
+    font-family:'Sacramento', cursive;font-weight:400;
+    background:linear-gradient(135deg, var(--green) 10%, var(--gold) 90%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;display:inline-block;
+  }
   .eyebrow{
     text-transform:uppercase;letter-spacing:.32em;font-size:.72rem;font-weight:600;color:var(--gold);
     display:inline-block;
@@ -303,9 +306,18 @@
     pointer-events:none;
   }
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;position:relative;z-index:1}
+  .hero-grid::before{
+    content:'CLEAN';
+    position:absolute;bottom:-12%;right:-4%;
+    font-family:'Cormorant Garamond',serif;font-size:21vw;font-weight:700;
+    color:transparent;-webkit-text-stroke:1.5px rgba(47,75,42,.055);
+    pointer-events:none;z-index:0;line-height:1;user-select:none;
+    letter-spacing:-.02em;
+  }
+  @media(max-width:880px){.hero-grid::before{font-size:36vw;bottom:-5%;right:-6%}}
   @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:40px;text-align:center}}
   .hero h1{font-size:clamp(2.4rem,5.2vw,4.2rem);margin:18px 0 20px}
-  .hero h1 .script{font-size:1.25em;display:block;line-height:.95;color:var(--green)}
+  .hero h1 .script{font-size:1.25em;display:block;line-height:.95}
   .hero p.lead{font-size:1.1rem;color:var(--muted);max-width:520px;margin-bottom:20px}
   @media(max-width:880px){.hero p.lead{margin-left:auto;margin-right:auto}}
   .hero-bullets{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;max-width:520px}
@@ -369,9 +381,10 @@
   .service-card::before{
     content:"";position:absolute;top:0;left:0;right:0;height:3px;
     background:linear-gradient(90deg,var(--green),var(--gold));
-    transform:scaleX(0);transform-origin:left;transition:transform .35s;
+    transform:scaleX(1);transform-origin:left;transition:transform .35s;
+    opacity:.45;
   }
-  .service-card:hover::before{transform:scaleX(1)}
+  .service-card:hover::before{opacity:1}
   .service-icon{
     width:54px;height:54px;border-radius:14px;
     background:linear-gradient(135deg,var(--beige) 0%,#fff 100%);
@@ -499,6 +512,97 @@
   }
   .ba-tag svg{width:12px;height:12px;stroke:var(--gold);fill:none;stroke-width:2.5}
 
+  /* ABOUT */
+  .about{background:var(--cream);position:relative;overflow:hidden}
+  .about-inner{max-width:860px;margin:0 auto;text-align:center}
+  .about-monogram{
+    width:86px;height:86px;border-radius:50%;
+    background:linear-gradient(135deg,var(--green) 0%,var(--green-dark) 100%);
+    display:grid;place-items:center;margin:0 auto 28px;
+    box-shadow:0 8px 30px rgba(47,75,42,.22), 0 0 0 5px var(--cream), 0 0 0 9px rgba(74,98,56,.14);
+    animation:aboutPulseRing 3s ease-in-out infinite;
+  }
+  @keyframes aboutPulseRing{
+    0%,100%{box-shadow:0 8px 30px rgba(47,75,42,.22), 0 0 0 5px var(--cream), 0 0 0 9px rgba(74,98,56,.14)}
+    50%{box-shadow:0 8px 30px rgba(47,75,42,.32), 0 0 0 5px var(--cream), 0 0 0 14px rgba(74,98,56,.10)}
+  }
+  .about-monogram span{
+    font-family:'Sacramento',cursive;font-size:3.2rem;
+    color:var(--gold-light);line-height:1;margin-top:.12em;display:block;
+  }
+  .about-tagline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(1.3rem,2.4vw,1.75rem);font-weight:600;
+    color:var(--green-dark);line-height:1.45;margin:16px 0 22px;
+  }
+  .about-body{
+    color:var(--muted);font-size:1rem;line-height:1.75;
+    max-width:620px;margin:0 auto 14px;
+  }
+  .about-body strong{color:var(--green-dark);font-weight:600}
+  .about-signature{
+    font-family:'Sacramento',cursive;font-size:2.1rem;
+    background:linear-gradient(135deg,var(--green) 10%,var(--gold) 90%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;display:inline-block;
+    margin-bottom:40px;
+  }
+  /* Feature cards con emoji */
+  .about-features{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  @media(max-width:880px){.about-features{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.about-features{grid-template-columns:1fr 1fr;gap:12px}}
+  .about-feat{
+    background:#fff;border:1px solid rgba(74,98,56,.1);
+    border-radius:var(--radius);padding:28px 16px 24px;
+    cursor:default;transition:transform .25s, box-shadow .25s, border-color .25s;
+    position:relative;overflow:hidden;
+  }
+  .about-feat::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(74,98,56,.04) 0%,transparent 100%);
+    opacity:0;transition:opacity .25s;
+  }
+  .about-feat:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--sage)}
+  .about-feat:hover::before{opacity:1}
+  .about-feat-emoji{
+    font-size:2.6rem;display:block;margin-bottom:14px;
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+    line-height:1;
+  }
+  .about-feat:hover .about-feat-emoji{transform:scale(1.3) rotate(-8deg)}
+  /* animaciones individuales en reposo */
+  .about-feat:nth-child(1) .about-feat-emoji{animation:emojiWash 4s ease-in-out infinite}
+  .about-feat:nth-child(2) .about-feat-emoji{animation:emojiKey 5s ease-in-out infinite}
+  .about-feat:nth-child(3) .about-feat-emoji{animation:emojiClip 4.5s ease-in-out infinite}
+  .about-feat:nth-child(4) .about-feat-emoji{animation:emojiHeart 1.4s ease-in-out infinite}
+  @keyframes emojiWash{
+    0%,100%{transform:rotate(0deg)}
+    25%{transform:rotate(-12deg) scale(1.05)}
+    75%{transform:rotate(10deg) scale(1.05)}
+  }
+  @keyframes emojiKey{
+    0%,70%,100%{transform:rotate(0deg)}
+    80%{transform:rotate(-18deg)}
+    90%{transform:rotate(12deg)}
+  }
+  @keyframes emojiClip{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-5px)}
+  }
+  @keyframes emojiHeart{
+    0%,100%{transform:scale(1)}
+    14%{transform:scale(1.2)}
+    28%{transform:scale(1)}
+    42%{transform:scale(1.15)}
+    56%{transform:scale(1)}
+  }
+  .about-feat strong{
+    display:block;font-size:.92rem;font-weight:700;
+    color:var(--green-dark);line-height:1.35;
+  }
+
   /* WHY US */
   .why{background:var(--beige-soft);position:relative;overflow:hidden}
   .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -537,13 +641,15 @@
   }
   .process-step:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
   .process-num{
-    position:absolute;top:-18px;left:50%;transform:translateX(-50%);
-    width:40px;height:40px;border-radius:50%;
-    background:var(--green-dark);color:var(--gold-light);
-    font-family:'Cormorant Garamond', serif;font-weight:700;font-size:1.15rem;
+    position:absolute;top:-24px;left:50%;transform:translateX(-50%);
+    width:52px;height:52px;border-radius:50%;
+    background:linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    font-family:'Cormorant Garamond', serif;font-weight:700;font-size:1.45rem;
     display:grid;place-items:center;
-    box-shadow:0 6px 18px rgba(47,75,42,.25);
-    border:2px solid var(--beige-soft);
+    box-shadow:0 8px 24px rgba(47,75,42,.35), 0 0 0 3px var(--beige-soft), 0 0 0 5px rgba(74,98,56,.18);
+    border:none;
+    color:var(--gold-light);
+    letter-spacing:-.01em;
   }
   .process-icon{
     width:54px;height:54px;border-radius:14px;
@@ -560,8 +666,9 @@
 
   /* PRICING */
   .pricing{background:var(--cream)}
-  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
-  @media(max-width:880px){.price-grid{grid-template-columns:1fr;gap:18px}}
+  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:stretch}
+  @media(max-width:1080px){.price-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+  @media(max-width:480px){.price-grid{grid-template-columns:1fr;gap:14px}}
   .price-card{
     background:#fff;border-radius:var(--radius-lg);padding:36px 30px 32px;
     box-shadow:var(--shadow-sm);border:1px solid rgba(74,98,56,.1);
@@ -722,7 +829,17 @@
   .form-hint{font-size:.78rem;color:var(--muted);text-align:center;margin-top:12px}
 
   /* AREA */
-  .area{background:var(--green-dark);color:var(--cream);position:relative;overflow:hidden}
+  @keyframes areaGradientShift{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  .area{
+    background:linear-gradient(135deg, #1f3219 0%, var(--green-dark) 40%, #2a3d1e 70%, #1a2a14 100%);
+    background-size:300% 300%;
+    animation:areaGradientShift 12s ease infinite;
+    color:var(--cream);position:relative;overflow:hidden;
+  }
   .area::before{
     content:"";position:absolute;top:-150px;right:-150px;width:400px;height:400px;
     background:radial-gradient(circle, rgba(184,149,106,.18), transparent 70%);
@@ -741,7 +858,7 @@
   }
   @media(max-width:880px){.area-grid{grid-template-columns:1fr;gap:40px}}
   .area-content h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin:14px 0 18px}
-  .area-content h2 .script{font-size:1.15em;color:var(--gold-light)}
+  .area-content h2 .script{font-size:1.15em;background:none;-webkit-text-fill-color:var(--gold-light);color:var(--gold-light)}
   .area-content p.intro{color:rgba(251,247,236,.78);font-size:1.05rem;margin-bottom:28px;max-width:520px}
   .area-pills{display:flex;flex-wrap:wrap;gap:12px}
   .area-pill{
@@ -790,9 +907,14 @@
   .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
   .gallery-item:hover img{transform:scale(1.06)}
   .gallery-item::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, transparent 60%, rgba(20,30,15,.4) 100%);
-    opacity:0;transition:opacity .3s;pointer-events:none;
+    content:attr(data-alt);position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 45%, rgba(20,30,15,.72) 100%);
+    opacity:0;transition:opacity .35s;pointer-events:none;
+    display:flex;align-items:flex-end;
+    padding:14px 16px;
+    font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;
+    color:var(--cream);letter-spacing:.01em;
+    line-height:1.3;
   }
   .gallery-item:hover::after{opacity:1}
   .gallery-item .gallery-zoom{
@@ -1051,6 +1173,87 @@
   .legal-box strong{color:var(--text)}
   .legal-box a{color:var(--green);text-underline-offset:3px}
 
+  /* 1. TIMELINE EN PROCESO */
+  .process-grid{padding-top:24px}
+  .process-grid::before{
+    content:'';position:absolute;top:24px;
+    left:calc(12.5% + 20px);right:calc(12.5% + 20px);
+    height:2px;
+    background:repeating-linear-gradient(90deg, var(--green) 0, var(--green) 7px, transparent 7px, transparent 16px);
+    opacity:.35;z-index:0;
+  }
+  @media(max-width:880px){.process-grid::before{display:none}}
+
+  /* 2. PRICE CARD FEATURED MEJORADA */
+  .price-card.featured{
+    background:linear-gradient(155deg,#fff 0%,var(--beige) 55%,#f0e8d5 100%) !important;
+    border:2px solid var(--green) !important;
+    box-shadow:0 24px 64px rgba(47,75,42,.16), 0 0 0 1px rgba(74,98,56,.12) !important;
+    transform:scale(1.04) !important;
+  }
+  .price-card.featured:hover{transform:scale(1.04) translateY(-4px) !important}
+  .price-card.featured::before{
+    background:linear-gradient(90deg, var(--green-dark), var(--green)) !important;
+    box-shadow:0 4px 14px rgba(47,75,42,.35);
+    padding:7px 22px !important;font-size:.74rem !important;
+  }
+
+  /* 3. PINS EN MAPA */
+  .map-pins{position:absolute;inset:0;pointer-events:none;z-index:4}
+  .map-pin{
+    position:absolute;
+    background:var(--green-dark);color:var(--cream);
+    font-size:.7rem;font-weight:600;letter-spacing:.06em;
+    padding:5px 11px 5px 8px;border-radius:999px;
+    display:inline-flex;align-items:center;gap:5px;
+    white-space:nowrap;
+    box-shadow:0 3px 14px rgba(0,0,0,.3);
+    transform:translateX(-50%);
+    animation:pinPop .5s cubic-bezier(.22,1,.36,1) both;
+  }
+  .map-pin::before{content:'';width:7px;height:7px;background:var(--gold);border-radius:50%;flex-shrink:0}
+  .map-pin:nth-child(2){animation-delay:.1s}
+  .map-pin:nth-child(3){animation-delay:.2s}
+  .map-pin:nth-child(4){animation-delay:.3s}
+  @keyframes pinPop{from{opacity:0;transform:translateX(-50%) scale(.6)}to{opacity:1;transform:translateX(-50%) scale(1)}}
+
+  /* 4. HIGHLIGHT ANIMADO HERO */
+  .hero-mark{background:none;color:inherit;position:relative;display:inline}
+  .hero-mark::after{
+    content:'';position:absolute;bottom:-3px;left:0;right:0;
+    height:4px;border-radius:2px;
+    background:linear-gradient(90deg, var(--green), var(--gold));
+    transform:scaleX(0);transform-origin:left;
+    animation:markReveal .9s cubic-bezier(.22,1,.36,1) 1.4s forwards;
+  }
+  @keyframes markReveal{to{transform:scaleX(1)}}
+
+  /* 5. SHIMMER EN SERVICE CARDS */
+  .service-card::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(110deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+    transform:translateX(-120%);
+    transition:transform .6s ease;
+    pointer-events:none;z-index:1;border-radius:inherit;
+  }
+  .service-card:hover::after{transform:translateX(120%)}
+
+  /* 6. NAV GLASSMORPHISM AL HACER SCROLL */
+  header.nav{transition:background .3s, backdrop-filter .3s, box-shadow .3s}
+  header.nav.scrolled{
+    background:rgba(251,247,236,.72);
+    backdrop-filter:saturate(200%) blur(22px);
+    box-shadow:0 2px 24px rgba(47,75,42,.09);
+    border-bottom-color:rgba(74,98,56,.14);
+  }
+
+  /* 7. MARCO DECORATIVO HERO IMAGE */
+  .hero-image{
+    box-shadow:0 24px 64px rgba(47,75,42,.18),
+               0 0 0 8px rgba(74,98,56,.07),
+               0 0 0 16px rgba(212,185,140,.12);
+  }
+
   /* SCROLL PROGRESS BAR */
   .scroll-progress{
     position:fixed;top:0;left:0;z-index:9999;
@@ -1148,7 +1351,7 @@
       <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>
     </div>
     <div class="loader-logo">Rosario <span class="accent">Clean</span></div>
-    <div class="loader-tagline" data-en="Apartments · Níjar and Cabo de Gata">Apartamentos · Níjar y Cabo de Gata</div>
+    <div class="loader-tagline" data-en="Apartments · San José · Pozo de los Frailes">Apartamentos · San José · Pozo de los Frailes</div>
     <div class="loader-status" data-en="Preparing your spotless retreat…">Preparando tu refugio impecable…</div>
     <div class="loader-bar"></div>
   </div>
@@ -1165,7 +1368,7 @@
     <nav class="nav-links">
       <a href="#servicios" data-en="Services">Servicios</a>
       <a href="#antes-despues" data-en="Results">Resultados</a>
-      <a href="#proceso" data-en="Process">Proceso</a>
+      <a href="#rosario" data-en="About">Rosario</a>
       <a href="#tarifas" data-en="Pricing">Tarifas</a>
       <button class="lang-toggle" type="button" id="langToggle" data-en-label="Change language" aria-label="Cambiar idioma">
         <span class="lang-opt active" data-lang="es">ES</span>
@@ -1181,16 +1384,16 @@
   <div class="container">
     <div class="hero-grid">
       <div class="fade-in">
-        <span class="eyebrow" data-en="Professional cleaning of holiday apartments · Níjar · Cabo de Gata">Limpieza profesional de apartamentos turísticos · Níjar · Cabo de Gata</span>
+        <span class="eyebrow" data-en="Professional cleaning of holiday apartments · San José · Pozo de los Frailes">Limpieza profesional de apartamentos turísticos · San José · Pozo de los Frailes</span>
         <h1 class="display">
           <span data-en="Your apartment,">Tu apartamento,</span>
-          <span class="script" data-en="always spotless">siempre impecable</span>
+          <span class="script" data-en="always spotless">siempre <mark class="hero-mark">impecable</mark></span>
         </h1>
-        <p class="lead" data-en="Professional cleaning service for holiday apartments in Níjar, San José, Las Negras and Agua Amarga. We handle the full process between check-out and check-in: thorough clean, linen change and every detail in place so each guest arrives to a five-star space.">Servicio profesional de limpieza para apartamentos turísticos en Níjar, San José, Las Negras y Agua Amarga. Nos ocupamos de todo entre check-out y check-in: limpieza completa, cambio de sábanas y cada detalle en su sitio para que tus huéspedes lleguen a un apartamento de cinco estrellas.</p>
+        <p class="lead" data-en="Professional cleaning service for holiday apartments in San José and Pozo de los Frailes. We handle the full process between check-out and check-in: thorough clean, linen change and every detail in place so each guest arrives to a five-star space.">Servicio profesional de limpieza para apartamentos turísticos en San José y Pozo de los Frailes. Nos ocupamos de todo entre check-out y check-in: limpieza completa, cambio de sábanas y cada detalle en su sitio para que tus huéspedes lleguen a un apartamento de cinco estrellas.</p>
         <ul class="hero-bullets">
           <li data-en="No travel needed from the owner">Sin desplazamientos para el propietario</li>
           <li data-en="Trusted person for key handover and coordination">Persona de confianza para llaves y coordinación</li>
-          <li data-en="Immediate availability in Cabo de Gata">Disponibilidad inmediata en Cabo de Gata</li>
+          <li data-en="Immediate availability in San José and Pozo de los Frailes">Disponibilidad inmediata en San José y Pozo de los Frailes</li>
         </ul>
         <div class="hero-ctas">
           <a href="https://wa.me/34634149607" class="btn btn-primary">
@@ -1514,32 +1717,82 @@
       <div class="fade-in">
         <span class="eyebrow" data-en="Why Rosario Clean">Por qué Rosario Clean</span>
         <h2 class="display">
-          <span data-en="Quality service for">Servicio de calidad para</span>
-          <span class="script" data-en="premium guests">huéspedes premium</span>
+          <span data-en="Your peace of mind,">Tu tranquilidad,</span>
+          <span class="script" data-en="our responsibility">nuestra responsabilidad</span>
         </h2>
-        <p class="intro" data-en="We take care of every detail so your holiday apartment runs like a business, not a worry. Trust, speed and a personal touch.">Cuidamos cada detalle para que tu apartamento turístico funcione como un negocio, no como una preocupación. Confianza, rapidez y atención personal.</p>
+        <p class="intro" data-en="We manage your holiday apartment with discretion and professionalism so you only have to worry about collecting your bookings. No unnecessary calls, no surprises.">Gestionamos tu apartamento turístico con discreción y profesionalidad para que tú solo te ocupes de cobrar las reservas. Sin llamadas innecesarias, sin sorpresas.</p>
         <ul class="check-list">
           <li>
             <span class="check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-            <div><strong data-en="Fast and reliable service">Servicio rápido y de confianza</strong><span data-en="We reply in minutes and meet agreed deadlines.">Respondemos en minutos y cumplimos los plazos pactados.</span></div>
+            <div><strong data-en="Discreet and trusted management">Gestión discreta y de confianza</strong><span data-en="We are your trusted person on the ground with keys to your property. No middlemen, no complications.">Somos tu persona de confianza con acceso a tus llaves. Sin intermediarios ni complicaciones.</span></div>
           </li>
           <li>
             <span class="check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-            <div><strong data-en="Eye for detail">Atención al detalle</strong><span data-en="Spotless results in every corner: kitchen, bathroom, bedrooms and common areas.">Resultado impecable en cada rincón: cocina, baño, dormitorios y comunes.</span></div>
+            <div><strong data-en="Adapts to your booking calendar">Adaptación a tu calendario</strong><span data-en="Send us the booking and we organise everything, even with short notice.">Avísanos con la reserva y nos organizamos, también con poco margen.</span></div>
           </li>
           <li>
             <span class="check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-            <div><strong data-en="Total flexibility">Flexibilidad total</strong><span data-en="We adapt to your booking calendar, even with short notice.">Nos adaptamos a tu calendario de reservas, también con avisos cortos.</span></div>
+            <div><strong data-en="Inspection and incident reporting">Revisión y reporte de incidencias</strong><span data-en="If something is not right in the apartment, we let you know before your guest does.">Si algo no está bien en el apartamento, te lo comunicamos antes de que lo haga el huésped.</span></div>
           </li>
           <li>
             <span class="check"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-            <div><strong data-en="Direct communication">Comunicación directa</strong><span data-en="Friendly WhatsApp service, no middlemen, no hassle.">Trato cercano por WhatsApp, sin intermediarios ni complicaciones.</span></div>
+            <div><strong data-en="Direct WhatsApp communication">Comunicación directa por WhatsApp</strong><span data-en="Confirmation of every service completed, with photo if needed.">Confirmación de cada servicio realizado, con foto si lo necesitas.</span></div>
           </li>
         </ul>
       </div>
     </div>
   </div>
 </section>
+
+<!-- WAVE: ABOUT → PROCESS -->
+<div class="wave-sep" style="background:var(--beige-soft)">
+  <svg viewBox="0 0 1440 52" height="52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,52 C360,0 720,52 1080,20 C1260,4 1380,32 1440,52 L1440,52 Z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- ABOUT ROSARIO -->
+<section id="rosario" class="about">
+  <div class="container">
+    <div class="about-inner fade-in">
+      <div class="about-monogram"><span>R</span></div>
+      <span class="eyebrow" data-en="About Rosario">Sobre Rosario</span>
+      <h2 class="display" style="margin:12px 0 18px;font-size:clamp(1.8rem,3.2vw,2.6rem)">
+        Limpieza profesional y <span class="script">gestión de apartamentos</span>
+      </h2>
+      <p class="about-body">
+        Rosario ofrece un <strong>servicio integral, discreto y de confianza</strong> para propietarios de apartamentos turísticos en San José y Pozo de los Frailes. Nos encargamos de cada detalle: desde la limpieza hasta la gestión de tus reservas, para que tú solo te ocupes de cobrar.
+      </p>
+      <p class="about-signature">✨ Tu apartamento, siempre impecable.</p>
+
+      <div class="about-features">
+        <div class="about-feat">
+          <span class="about-feat-emoji">🧼</span>
+          <strong>Servicio integral de alta calidad</strong>
+        </div>
+        <div class="about-feat">
+          <span class="about-feat-emoji">🔑</span>
+          <strong>Gestión de llaves y reservas</strong>
+        </div>
+        <div class="about-feat">
+          <span class="about-feat-emoji">📋</span>
+          <strong>Control y revisión impecable</strong>
+        </div>
+        <div class="about-feat">
+          <span class="about-feat-emoji">💚</span>
+          <strong>Discreción y confianza</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: ABOUT → PROCESS -->
+<div class="wave-sep" style="background:var(--beige-soft)">
+  <svg viewBox="0 0 1440 52" height="52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C480,52 960,0 1440,36 L1440,0 Z" fill="var(--cream)"/>
+  </svg>
+</div>
 
 <!-- PROCESS / CÓMO TRABAJAMOS -->
 <section id="proceso" class="process">
@@ -1606,71 +1859,90 @@
     <div class="section-head fade-in">
       <span class="eyebrow" data-en="Pricing">Tarifas</span>
       <h2 class="display">
-        <span data-en="Pick the pack that">Elige el pack que</span>
-        <span class="script" data-en="fits you best">mejor encaje</span>
+        <span data-en="Prices by">Precios por</span>
+        <span class="script" data-en="type of property">tipo de alojamiento</span>
       </h2>
-      <p data-en="Three service tiers designed for holiday apartments. Request a quote with no obligation and we'll tailor each visit to your booking.">Tres niveles de servicio pensados para apartamentos turísticos. Pide presupuesto sin compromiso y adaptamos cada visita a tu reserva.</p>
+      <p data-en="Fixed price per cleaning visit, according to your apartment type. No surprises.">Precio fijo por visita de limpieza, según el tipo de alojamiento. Sin sorpresas.</p>
     </div>
 
     <div class="price-grid">
+
+      <!-- 1 dormitorio -->
       <div class="price-card fade-in">
-        <div class="price-name" data-en="Essential">Esencial</div>
-        <p class="price-tagline" data-en="Quick clean between guests for back-to-back bookings.">Limpieza rápida entre huéspedes para reservas seguidas.</p>
+        <div class="price-name" data-en="1 Bedroom">1 Dormitorio</div>
+        <p class="price-tagline" data-en="Studio or one-bedroom apartment.">Apartamento de un dormitorio.</p>
         <div class="price-amount">
-          <span class="price-val">55 <sup>€</sup></span>
-          <small data-en="per service · approx. 1–2 h">por servicio · aprox. 1–2 h</small>
+          <span class="price-val">60 <sup>€</sup></span>
+          <small data-en="per cleaning visit">por visita de limpieza</small>
         </div>
         <ul class="price-features">
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Kitchen and bathroom cleaning">Limpieza de cocina y baños</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Vacuuming and floor mopping">Aspirado y fregado de suelos</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Bin emptying">Vaciado de papeleras</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Quick condition check">Revisión rápida del estado</span></li>
-          <li class="muted"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg><span data-en="Linen and towel change">Cambio de sábanas y toallas</span></li>
-          <li class="muted"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg><span data-en="Key handover">Entrega de llaves</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Full cleaning of all rooms">Limpieza completa de todas las estancias</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Kitchen and bathroom">Cocina y baño</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Vacuuming and mopping">Aspirado y fregado</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Condition check and report">Revisión y reporte del estado</span></li>
         </ul>
-        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Esencial%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
+        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20tengo%20un%20apartamento%20de%201%20dormitorio%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
       </div>
 
+      <!-- 2 dormitorios -->
       <div class="price-card featured fade-in">
-        <div class="price-name" data-en="Complete">Completo</div>
-        <p class="price-tagline" data-en="Everything needed to leave the apartment ready from check-in to check-in.">Todo lo necesario para dejar el apartamento listo de check-in a check-in.</p>
+        <div class="price-name" data-en="2 Bedrooms">2 Dormitorios</div>
+        <p class="price-tagline" data-en="Two-bedroom apartment.">Apartamento de dos dormitorios.</p>
         <div class="price-amount">
-          <span class="price-val"><span class="from" data-en="from">desde</span>75 <sup>€</sup></span>
-          <small data-en="per service · linen change included">por servicio · cambio de lencería incluido</small>
+          <span class="price-val">70 <sup>€</sup></span>
+          <small data-en="per cleaning visit">por visita de limpieza</small>
         </div>
         <ul class="price-features">
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Everything in the Essential pack">Todo lo del pack Esencial</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Linen and towel change">Cambio de sábanas y toallas</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Restocking of basic consumables">Reposición de consumibles básicos</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Welcome detail setup">Preparación detalle bienvenida</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Inspection and reporting">Revisión y control de estado</span></li>
-          <li class="muted"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg><span data-en="Key handover and pickup">Entrega y recogida de llaves</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Full cleaning of all rooms">Limpieza completa de todas las estancias</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Kitchen and bathrooms">Cocina y baños</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Vacuuming and mopping">Aspirado y fregado</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Condition check and report">Revisión y reporte del estado</span></li>
         </ul>
-        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Completo%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
+        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20tengo%20un%20apartamento%20de%202%20dormitorios%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
       </div>
 
+      <!-- Dúplex -->
       <div class="price-card fade-in">
-        <div class="price-name" data-en="Premium">Premium</div>
-        <p class="price-tagline" data-en="Full service with key management and personal attention.">Servicio integral con gestión de llaves y atención personalizada.</p>
+        <div class="price-name" data-en="Duplex">Dúplex</div>
+        <p class="price-tagline" data-en="Two-storey duplex apartment.">Apartamento dúplex en dos plantas.</p>
         <div class="price-amount">
-          <span class="price-val"><span class="from" data-en="from">desde</span>95 <sup>€</sup></span>
-          <small data-en="full service · keys &amp; guest welcome included">servicio integral · llaves y bienvenida incluidos</small>
+          <span class="price-val">90 <sup>€</sup></span>
+          <small data-en="per cleaning visit">por visita de limpieza</small>
         </div>
         <ul class="price-features">
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Everything in the Complete pack">Todo lo del pack Completo</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Key handover and pickup">Entrega y recogida de llaves</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Guest welcome at check-in">Atención al huésped en check-in</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Monthly deep clean">Limpieza profunda mensual</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Incident reports">Reportes de incidencias</span></li>
-          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Priority availability">Disponibilidad prioritaria</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Full cleaning of all rooms">Limpieza completa de todas las estancias</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Kitchen and bathrooms">Cocina y baños</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Vacuuming and mopping">Aspirado y fregado</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Condition check and report">Revisión y reporte del estado</span></li>
         </ul>
-        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20me%20interesa%20el%20pack%20Premium%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
+        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20tengo%20un%20d%C3%BAplex%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Get a quote">Pedir presupuesto</a>
       </div>
+
+      <!-- Chalet / Villa -->
+      <div class="price-card fade-in">
+        <div class="price-name" data-en="Chalet &amp; Villa">Chalet y Villa</div>
+        <p class="price-tagline" data-en="Larger properties. Price depends on size.">Propiedades de mayor tamaño. Precio según superficie.</p>
+        <div class="price-amount">
+          <span class="pending">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <span data-en="Quote on request">Consultar precio</span>
+          </span>
+          <small data-en="free assessment · no obligation">valoración gratuita · sin compromiso</small>
+        </div>
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Full cleaning of all rooms">Limpieza completa de todas las estancias</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Tailored to the property">Adaptado al tamaño del inmueble</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Condition check and report">Revisión y reporte del estado</span></li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Custom quote">Presupuesto personalizado</span></li>
+        </ul>
+        <a href="https://wa.me/34634149607?text=Hola%20Rosario%20Clean%2C%20tengo%20un%20chalet%2Fvilla%20y%20quiero%20pedir%20presupuesto" class="price-cta" data-en="Ask for a quote">Consultar precio</a>
+      </div>
+
     </div>
 
     <p class="price-note fade-in">
-      <strong data-en="None of the packs fit?">¿No te encaja ningún pack?</strong>
-      <span data-en="Every apartment is different. Tell us what you need and we'll prepare a custom quote.">Cada apartamento es distinto. Cuéntanos lo que necesitas y te preparamos un presupuesto personalizado.</span>
+      <strong data-en="Not sure which applies to you?">¿Tienes dudas sobre tu tipo de alojamiento?</strong>
+      <span data-en="Write to us on WhatsApp and we'll give you a price in minutes.">Escríbenos por WhatsApp y en pocos minutos te damos precio.</span>
     </p>
   </div>
 </section>
@@ -1690,25 +1962,26 @@
         <span class="eyebrow" data-en="Service area">Zona de servicio</span>
         <h2 class="display">
           <span data-en="We cover">Cubrimos</span>
-          <span class="script">Níjar</span>
-          <span data-en="and surroundings">y alrededores</span>
+          <span class="script">San José</span>
+          <span data-en="and Pozo de los Frailes">y Pozo de los Frailes</span>
         </h2>
-        <p class="intro" data-en="We serve holiday apartments in the coastal towns of the Cabo de Gata-Níjar Natural Park. If your apartment is in the area, we'll get there.">Damos servicio a apartamentos turísticos en las localidades costeras del Parque Natural Cabo de Gata-Níjar. Si tu apartamento está en la zona, llegamos.</p>
+        <p class="intro" data-en="We serve holiday apartments in San José and Pozo de los Frailes. If your apartment is in the area, we'll get there.">Damos servicio a apartamentos turísticos en San José y Pozo de los Frailes. Si tu apartamento está en la zona, llegamos.</p>
         <div class="area-pills">
-          <span class="area-pill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Níjar</span>
           <span class="area-pill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>San José</span>
-          <span class="area-pill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Las Negras</span>
-          <span class="area-pill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Agua Amarga</span>
-          <span class="area-pill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-en="And nearby">Y alrededores</span></span>
+          <span class="area-pill"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Pozo de los Frailes</span>
         </div>
       </div>
-      <div class="area-card fade-in" style="overflow:hidden;padding:0;background:#000">
-        <span class="area-card-tag">Cabo de Gata</span>
+      <div class="area-card fade-in" style="overflow:hidden;padding:0;background:#000;position:relative">
+        <span class="area-card-tag">San José · Pozo de los Frailes</span>
+        <div class="map-pins" aria-hidden="true">
+          <span class="map-pin" style="top:52%;left:44%">San José</span>
+          <span class="map-pin" style="top:36%;left:58%">Pozo de los Frailes</span>
+        </div>
         <iframe
-          src="https://maps.google.com/maps?q=Níjar,+Almería,+España&t=&z=11&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=San+José,+Níjar,+Almería,+España&t=&z=12&ie=UTF8&iwloc=&output=embed"
           width="100%" height="100%" style="border:0;display:block;width:100%;height:100%;min-height:340px;filter:saturate(.85)"
           loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-          title="Zona de servicio Rosario Clean · Níjar y Cabo de Gata"></iframe>
+          title="Zona de servicio Rosario Clean · San José y Pozo de los Frailes"></iframe>
       </div>
     </div>
   </div>
@@ -1737,8 +2010,8 @@
         <img src="imagenes/rosario7.jpeg" alt="Detalles de bienvenida y toallas" loading="lazy" />
         <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
       </div>
-      <div class="gallery-item wide" data-src="imagenes/rosario.jpeg" data-alt="Tarjeta Rosario Clean · Servicio en Cabo de Gata">
-        <img src="imagenes/rosario.jpeg" alt="Tarjeta Rosario Clean · Servicio en Cabo de Gata" loading="lazy" />
+      <div class="gallery-item wide" data-src="imagenes/rosario.jpeg" data-alt="Tarjeta Rosario Clean · San José y Pozo de los Frailes">
+        <img src="imagenes/rosario.jpeg" alt="Tarjeta Rosario Clean · San José y Pozo de los Frailes" loading="lazy" />
         <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg></span>
       </div>
       <div class="gallery-item" data-src="imagenes/rosario2.jpeg" data-alt="Servicio de calidad para huéspedes premium">
@@ -1875,7 +2148,7 @@
           <span data-en="What areas do you cover?">¿En qué zonas trabajáis?</span>
           <span class="faq-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
         </button>
-        <div class="faq-a" role="region"><p data-en="We cover the main holiday areas of the Cabo de Gata-Níjar Natural Park: Níjar, San José, Las Negras and Agua Amarga, as well as nearby towns. If you're not sure whether we reach you, just ask!">Cubrimos las principales zonas turísticas del Parque Natural Cabo de Gata-Níjar: Níjar, San José, Las Negras y Agua Amarga, así como localidades cercanas. Si no sabes si llegamos a tu zona, ¡pregúntanos!</p></div>
+        <div class="faq-a" role="region"><p data-en="We work in San José and Pozo de los Frailes. If you're not sure whether we reach you, just ask!">Trabajamos en San José y Pozo de los Frailes. Si no sabes si llegamos a tu zona, ¡pregúntanos!</p></div>
       </div>
 
     </div>
@@ -1929,7 +2202,7 @@
             </span>
             <div>
               <small data-en="Service area">Zona</small>
-              <span>Níjar, San José, Las Negras, Agua Amarga</span>
+              <span>San José · Pozo de los Frailes</span>
             </div>
           </li>
           <li>
@@ -1964,10 +2237,8 @@
             <label for="cf-zone" data-en="Area">Zona</label>
             <select id="cf-zone" name="zone">
               <option value="" data-en="Select an area">Selecciona una zona</option>
-              <option value="Níjar">Níjar</option>
               <option value="San José">San José</option>
-              <option value="Las Negras">Las Negras</option>
-              <option value="Agua Amarga">Agua Amarga</option>
+              <option value="Pozo de los Frailes">Pozo de los Frailes</option>
               <option value="Otra" data-en="Other">Otra</option>
             </select>
           </div>
@@ -1975,11 +2246,10 @@
             <label for="cf-apartment" data-en="Apartment type">Tipo de apartamento</label>
             <select id="cf-apartment" name="apartment">
               <option value="" data-en="Select">Selecciona</option>
-              <option value="Estudio" data-en="Studio">Estudio</option>
-              <option value="1 dormitorio" data-en="1 bedroom">1 dormitorio</option>
-              <option value="2 dormitorios" data-en="2 bedrooms">2 dormitorios</option>
-              <option value="3 dormitorios" data-en="3 bedrooms">3 dormitorios</option>
-              <option value="4+ dormitorios" data-en="4 or more bedrooms">4 o más dormitorios</option>
+              <option value="1 dormitorio" data-en="1 bedroom">Apartamento 1 dormitorio</option>
+              <option value="2 dormitorios" data-en="2 bedrooms">Apartamento 2 dormitorios</option>
+              <option value="Dúplex" data-en="Duplex">Dúplex</option>
+              <option value="Chalet / Villa" data-en="Chalet / Villa">Chalet o Villa</option>
             </select>
           </div>
         </div>
@@ -1988,10 +2258,9 @@
           <label for="cf-service" data-en="Service you need">Servicio que necesitas</label>
           <select id="cf-service" name="service">
             <option value="" data-en="Select a service">Selecciona un servicio</option>
-            <option value="Pack Esencial" data-en="Essential pack">Pack Esencial</option>
-            <option value="Pack Completo" data-en="Complete pack">Pack Completo</option>
-            <option value="Pack Premium" data-en="Premium pack">Pack Premium</option>
+            <option value="Limpieza entre huéspedes" data-en="Between-guest cleaning">Limpieza entre huéspedes</option>
             <option value="Limpieza puntual" data-en="One-off cleaning">Limpieza puntual</option>
+            <option value="Otro" data-en="Other">Otro</option>
             <option value="Cambio de sábanas y toallas" data-en="Linen and towel change">Cambio de sábanas y toallas</option>
             <option value="Otro" data-en="Other">Otro</option>
           </select>
@@ -2026,7 +2295,7 @@
       <div class="brand-mark">R</div>
       <div class="brand-name">Rosario Clean<small>Apartamentos</small></div>
     </div>
-    <p style="margin-top:18px;max-width:520px;margin-left:auto;margin-right:auto" data-en="Professional cleaning for holiday apartments in Níjar and Cabo de Gata. Fast and reliable service.">Limpieza profesional de apartamentos turísticos en Níjar y Cabo de Gata. Servicio rápido y de confianza.</p>
+    <p style="margin-top:18px;max-width:520px;margin-left:auto;margin-right:auto" data-en="Professional cleaning for holiday apartments in San José and Pozo de los Frailes. Fast and reliable service.">Limpieza profesional de apartamentos turísticos en San José y Pozo de los Frailes. Servicio rápido y de confianza.</p>
     <div class="footer-bottom">
       © <span id="year"></span> Rosario Clean Apartamentos · <a href="https://wa.me/34634149607">634 149 607</a>
       &nbsp;·&nbsp;
@@ -2585,6 +2854,15 @@
       window.open(`https://wa.me/34634149607?text=${text}`, '_blank', 'noopener');
     });
   }
+
+  // Nav glassmorphism on scroll
+  (function () {
+    const nav = document.querySelector('header.nav');
+    if (!nav) return;
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  })();
 
   // Scroll progress bar
   (function () {
