@@ -1055,6 +1055,64 @@
   /* PARALLAX HERO */
   .hero-image img{will-change:transform;transform-origin:center top}
 
+  /* TESTIMONIAL */
+  .testimonial{background:var(--green-dark);color:var(--cream);position:relative;overflow:hidden}
+  .testimonial::before{
+    content:'';position:absolute;top:-120px;right:-120px;
+    width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(184,149,106,.15),transparent 70%);
+    pointer-events:none;
+  }
+  .testimonial-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;
+    position:relative;z-index:1;
+  }
+  @media(max-width:880px){.testimonial-grid{grid-template-columns:1fr;gap:40px}}
+  .testimonial-letter{
+    position:relative;
+  }
+  .testimonial-letter img{
+    width:100%;border-radius:var(--radius);
+    box-shadow:0 24px 64px rgba(0,0,0,.45);
+    transform:rotate(-2deg);
+    transition:transform .4s cubic-bezier(.22,1,.36,1);
+  }
+  .testimonial-letter:hover img{transform:rotate(0deg) scale(1.02)}
+  .testimonial-letter::after{
+    content:'';position:absolute;inset:-8px;
+    border:1.5px solid rgba(212,185,140,.2);
+    border-radius:calc(var(--radius) + 8px);
+    transform:rotate(-2deg);
+    pointer-events:none;
+    transition:transform .4s cubic-bezier(.22,1,.36,1);
+  }
+  .testimonial-letter:hover::after{transform:rotate(0deg)}
+  .testimonial-content{display:flex;flex-direction:column;gap:24px}
+  .testimonial-stars{display:flex;gap:4px}
+  .testimonial-stars span{font-size:1.3rem}
+  .testimonial-quote-mark{
+    font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:700;
+    color:var(--gold);line-height:.6;opacity:.55;
+    margin-bottom:-8px;display:block;
+  }
+  .testimonial-quote{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(1.35rem,2.4vw,1.8rem);font-weight:600;
+    color:var(--cream);line-height:1.5;
+  }
+  .testimonial-detail{
+    color:rgba(251,247,236,.7);font-size:.95rem;line-height:1.65;
+    border-left:2px solid var(--gold);padding-left:18px;
+  }
+  .testimonial-author{
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .testimonial-author strong{
+    font-family:'Cormorant Garamond',serif;font-size:1.2rem;
+    font-weight:600;color:var(--gold-light);
+  }
+  .testimonial-author span{font-size:.82rem;color:rgba(251,247,236,.5);letter-spacing:.08em;text-transform:uppercase}
+
   /* FAQ */
   .faq{background:var(--beige-soft)}
   .faq-list{max-width:780px;margin:0 auto;display:grid;gap:12px}
@@ -2076,12 +2134,54 @@
   </div>
 </section>
 
-<!-- WAVE: GALLERY → FAQ -->
-<div class="wave-sep" style="background:#FAF4E6">
-  <svg viewBox="0 0 1440 52" height="52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,0 L0,28 C360,52 700,4 1000,40 C1200,55 1350,15 1440,28 L1440,0 Z" fill="#F4EBD9"/>
+<!-- WAVE: GALLERY → TESTIMONIAL -->
+<div class="wave-sep" style="background:var(--beige-soft)">
+  <svg viewBox="0 0 1440 62" height="62" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C320,62 640,0 960,42 C1120,62 1300,20 1440,42 L1440,0 Z" fill="var(--green-dark)"/>
   </svg>
 </div>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="container">
+    <div class="testimonial-grid">
+
+      <div class="testimonial-letter fade-in">
+        <img
+          src="imagenes/carta_anna_jorn.jpeg"
+          alt="Carta de agradecimiento de huéspedes a Rosario Clean — San José"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="testimonial-content fade-in">
+        <div class="testimonial-stars">
+          <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+        </div>
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-quote">
+          Muchas gracias por hacer posible nuestra estancia con tan poco tiempo de antelación.
+        </p>
+        <p class="testimonial-detail">
+          Al final hemos disfrutado mucho de desayunar viendo las golondrinas reconstruyendo su nido poco a poco. Esperamos que los siguientes inquilinos puedan observarlos como nosotros.
+        </p>
+        <div class="testimonial-author">
+          <strong>Anna y Jörn</strong>
+          <span>Huéspedes · San José</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WAVE: TESTIMONIAL → FAQ -->
+<div class="wave-sep" style="background:var(--green-dark)">
+  <svg viewBox="0 0 1440 62" height="62" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,62 C360,0 900,62 1440,20 L1440,62 Z" fill="#FAF4E6"/>
+  </svg>
+</div>
+
 
 <!-- FAQ -->
 <section id="faq" class="faq">
