@@ -6,6 +6,8 @@
 <title>Limpieza de apartamentos turísticos en San José | Rosario Clean</title>
 <meta name="description" content="Limpieza de apartamentos turísticos, Airbnb y viviendas vacacionales en San José y Pozo de los Frailes. Limpieza completa, cambio de sábanas y preparación entre huéspedes." />
 <meta name="theme-color" content="#3D4F2C" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.rosario-clean.es/" />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -32,27 +34,98 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "#rosarioclean",
+  "@id": "https://www.rosario-clean.es/#rosarioclean",
   "name": "Rosario Clean",
-  "image": "imagenes/rosario3.jpeg",
-  "description": "Limpieza de apartamentos turísticos, Airbnb y viviendas vacacionales en San José y Pozo de los Frailes.",
+  "url": "https://www.rosario-clean.es/",
+  "logo": "https://www.rosario-clean.es/imagenes/rosario3.jpeg",
+  "image": "https://www.rosario-clean.es/imagenes/rosario3.jpeg",
+  "description": "Limpieza de apartamentos turísticos, Airbnb y viviendas vacacionales en San José y Pozo de los Frailes. Limpieza completa, cambio de sábanas y preparación entre huéspedes.",
   "telephone": "+34634149607",
   "priceRange": "€€",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Níjar",
+    "addressLocality": "San José",
     "addressRegion": "Almería",
+    "postalCode": "04118",
     "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 36.7878,
+    "longitude": -2.1007
   },
   "areaServed": [
     { "@type": "City", "name": "San José" },
     { "@type": "City", "name": "Pozo de los Frailes" }
   ],
-  "serviceType": ["Limpieza de apartamentos turísticos", "Limpieza Airbnb", "Limpieza viviendas vacacionales", "Cambio de sábanas y toallas", "Preparación entre huéspedes"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de limpieza",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Limpieza de apartamentos turísticos en San José" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Limpieza Airbnb San José" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Limpieza entre huéspedes" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cambio de sábanas y toallas" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Limpieza viviendas vacacionales Pozo de los Frailes" } }
+    ]
+  },
   "openingHours": "Mo-Su 08:00-20:00",
   "sameAs": ["https://wa.me/34634149607"]
 }
 </script>
+
+<!-- Schema.org FAQPage — rich snippets en Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿En qué zonas trabaja Rosario Clean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trabajamos únicamente en San José y Pozo de los Frailes. Esta concentración geográfica nos permite ofrecer un servicio rápido, puntual y de calidad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hacéis limpieza entre salida y entrada de huéspedes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, es nuestro servicio principal. Coordinamos la limpieza entre el check-out y el check-in para que el apartamento esté perfecto para cada nueva entrada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La limpieza incluye cambio de sábanas y toallas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, el cambio de sábanas y toallas está incluido en el servicio. El apartamento queda completamente listo para el siguiente huésped."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo contratar limpiezas recurrentes para toda la temporada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por supuesto. Muchos propietarios trabajan con nosotros toda la temporada. Nos adaptamos a tu calendario de reservas y gestionamos cada rotación sin que tengas que preocuparte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo pido presupuesto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La forma más rápida es por WhatsApp. Cuéntanos el tipo de apartamento y la zona, y te respondemos con precio en minutos. Teléfono: +34634149607."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Preload imagen hero (mejora LCP / Core Web Vitals) -->
+<link rel="preload" as="image" href="imagenes/rosario7.jpeg" fetchpriority="high" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

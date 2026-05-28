@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rosarioclean.es/sitemap.xml
+Sitemap: https://www.rosario-clean.es/sitemap.xml
