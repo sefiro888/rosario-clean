@@ -395,28 +395,69 @@
     transition:background .2s, color .2s;
   }
   .lang-toggle .lang-opt.active{background:var(--green-dark);color:var(--cream)}
+  /* HAMBURGER BUTTON */
+  .nav-hamburger{
+    display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+    width:40px;height:40px;flex-shrink:0;
+    background:var(--beige-soft);
+    border:1.5px solid rgba(74,98,56,.18);border-radius:10px;
+    cursor:pointer;padding:0;
+  }
+  .nav-hamburger .hb{
+    display:block;width:20px;height:2px;
+    background:var(--green-dark);border-radius:2px;
+    transition:transform .3s ease, opacity .3s ease;
+  }
+  .nav-hamburger.open .hb:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-hamburger.open .hb:nth-child(2){opacity:0}
+  .nav-hamburger.open .hb:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* MOBILE NAV DROPDOWN */
+  .nav-mobile-menu{
+    position:absolute;top:100%;left:0;right:0;z-index:48;
+    background:var(--cream);
+    border-bottom:2px solid rgba(74,98,56,.1);
+    box-shadow:0 16px 48px rgba(47,75,42,.16);
+    overflow:hidden;max-height:0;
+    transition:max-height .4s cubic-bezier(.22,1,.36,1);
+    display:none;
+  }
+  .nav-mobile-menu.open{max-height:700px}
+  .nmm-inner{padding:16px 20px 24px;display:flex;flex-direction:column;gap:4px}
+  .nmm-label{
+    font-size:.68rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.28em;color:var(--gold);
+    padding:10px 16px 4px;
+  }
+  .nmm-link{
+    display:flex;align-items:center;gap:12px;
+    padding:13px 16px;border-radius:12px;
+    font-size:.97rem;font-weight:500;color:var(--text);
+    transition:background .18s,color .18s;
+  }
+  .nmm-link:hover,.nmm-link:active{background:var(--beige);color:var(--green-dark)}
+  .nmm-link svg{width:18px;height:18px;stroke:var(--sage);fill:none;stroke-width:1.8;flex-shrink:0}
+  .nmm-sep{height:1px;background:rgba(74,98,56,.1);margin:8px 0}
+  .nmm-wa{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:15px;border-radius:999px;
+    background:#25D366;color:#fff;
+    font-weight:700;font-size:.97rem;
+    margin-top:12px;box-shadow:0 4px 16px rgba(37,211,102,.3);
+  }
+  .nmm-wa svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+
   @media(max-width:780px){
-    .nav-links a:not(.nav-page){display:none}
-    .nav-links .nav-cta{display:none}
-    .nav-links .nav-page{
-      display:inline-flex;
-      font-size:.78rem;padding:7px 12px;
-      border:1px solid rgba(74,98,56,.18);
-      border-radius:999px;font-weight:600;
-      color:var(--green-dark);background:var(--beige-soft);
-      white-space:nowrap;
-    }
-    .nav-links .nav-page:hover{background:var(--green);color:#fff;border-color:var(--green)}
-    .nav-links .lang-toggle{display:inline-flex}
-    .nav-links{gap:6px;flex-wrap:nowrap;overflow-x:auto}
+    .nav-hamburger{display:flex}
+    .nav-links{display:none !important}
+    .nav-mobile-menu{display:block}
+    .nav-inner{padding:12px 20px}
   }
   @media(max-width:420px){
-    .nav-inner{padding:12px 16px}
     .brand-name{font-size:1.4rem}
     .brand-name small{display:none}
     .brand-mark{width:38px;height:38px;font-size:1.4rem}
-    .nav-links .nav-page{font-size:.72rem;padding:6px 10px}
-    .lang-toggle .lang-opt{padding:5px 8px;font-size:.7rem}
+    .nav-inner{padding:10px 16px}
   }
 
   /* HERO */
@@ -792,7 +833,11 @@
   .pricing{background:var(--cream)}
   .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:stretch}
   @media(max-width:1080px){.price-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
-  @media(max-width:480px){.price-grid{grid-template-columns:1fr;gap:14px}}
+  @media(max-width:480px){
+    .price-grid{grid-template-columns:1fr;gap:14px}
+    .price-card.featured{transform:none !important}
+    .price-card.featured:hover{transform:translateY(-4px) !important}
+  }
   .price-card{
     background:#fff;border-radius:var(--radius-lg);padding:36px 30px 32px;
     box-shadow:var(--shadow-sm);border:1px solid rgba(74,98,56,.1);
@@ -1561,6 +1606,50 @@
       </button>
       <a href="#contacto" class="nav-cta" data-en="Contact">Contactar</a>
     </nav>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span class="hb"></span>
+      <span class="hb"></span>
+      <span class="hb"></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobileMenu" aria-hidden="true">
+    <div class="nmm-inner">
+      <span class="nmm-label">En esta página</span>
+      <a href="#servicios" class="nmm-link">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l2-9h14l2 9"/><path d="M3 12v9h18v-9"/><path d="M9 16h6"/></svg>
+        Servicios
+      </a>
+      <a href="#antes-despues" class="nmm-link">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        Resultados
+      </a>
+      <a href="#tarifas" class="nmm-link">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        Tarifas
+      </a>
+      <a href="#contacto" class="nmm-link">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Contactar
+      </a>
+      <div class="nmm-sep"></div>
+      <span class="nmm-label">Otras páginas</span>
+      <a href="sobre-rosario.html" class="nmm-link">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Sobre Rosario
+      </a>
+      <a href="limpieza-san-jose.html" class="nmm-link">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        San José
+      </a>
+      <a href="limpieza-pozo-de-los-frailes.html" class="nmm-link">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Pozo de los Frailes
+      </a>
+      <a href="https://wa.me/34616255553?text=Hola%20Rosario%2C%20he%20visto%20tu%20web%20y%20quiero%20pedir%20presupuesto%20para%20la%20limpieza%20de%20un%20apartamento%20tur%C3%ADstico%20en%20San%20Jos%C3%A9%20o%20Pozo%20de%20los%20Frailes." class="nmm-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir presupuesto por WhatsApp
+      </a>
+    </div>
   </div>
 </header>
 
@@ -3173,6 +3262,32 @@
     btn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  })();
+
+  // Hamburger mobile nav
+  (function () {
+    const btn  = document.getElementById('navHamburger');
+    const menu = document.getElementById('navMobileMenu');
+    if (!btn || !menu) return;
+    const close = () => {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    };
+    btn.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('open');
+      if (isOpen) { close(); return; }
+      btn.classList.add('open');
+      menu.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-hidden', 'false');
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('click', (e) => {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   })();
 </script>
 

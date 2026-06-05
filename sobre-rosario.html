@@ -64,7 +64,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+  body{font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
   .container{max-width:1080px;margin:0 auto;padding:0 24px}
@@ -73,10 +73,30 @@
   nav{background:rgba(251,247,236,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(74,98,56,.1);padding:16px 0;position:sticky;top:0;z-index:100}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
   .nav-logo{font-family:'Sacramento',cursive;font-size:1.7rem;color:var(--green-dark)}
-  .nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .nav-link{font-size:.85rem;font-weight:600;color:var(--green);border:1px solid rgba(74,98,56,.2);border-radius:999px;padding:6px 14px;transition:background .2s,color .2s}
+  .nav-links{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+  .nav-link{font-size:.85rem;font-weight:600;color:var(--green);border:1px solid rgba(74,98,56,.2);border-radius:999px;padding:6px 14px;transition:background .2s,color .2s;white-space:nowrap}
   .nav-link:hover{background:var(--green);color:#fff}
   .nav-link.active{background:var(--green);color:#fff}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;flex-shrink:0;background:var(--beige-soft);border:1.5px solid rgba(74,98,56,.18);border-radius:10px;cursor:pointer;padding:0}
+  .nav-hamburger .hb{display:block;width:20px;height:2px;background:var(--green-dark);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+  .nav-hamburger.open .hb:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-hamburger.open .hb:nth-child(2){opacity:0}
+  .nav-hamburger.open .hb:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-mobile-menu{position:absolute;top:100%;left:0;right:0;z-index:99;background:var(--cream);border-bottom:2px solid rgba(74,98,56,.1);box-shadow:0 16px 48px rgba(47,75,42,.16);overflow:hidden;max-height:0;transition:max-height .4s cubic-bezier(.22,1,.36,1);display:none}
+  .nav-mobile-menu.open{max-height:500px}
+  .nmm-inner{padding:16px 20px 24px;display:flex;flex-direction:column;gap:4px}
+  .nmm-link{display:flex;align-items:center;padding:13px 16px;border-radius:12px;font-size:.97rem;font-weight:500;color:var(--text);transition:background .18s,color .18s}
+  .nmm-link:hover,.nmm-link:active{background:var(--beige);color:var(--green-dark)}
+  .nmm-link.active{background:var(--beige-soft);color:var(--green);font-weight:600}
+  .nmm-sep{height:1px;background:rgba(74,98,56,.1);margin:8px 0}
+  .nmm-wa{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:999px;background:#25D366;color:#fff;font-weight:700;font-size:.97rem;margin-top:10px;box-shadow:0 4px 16px rgba(37,211,102,.3)}
+  .nmm-wa svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+  @media(max-width:700px){
+    .nav-hamburger{display:flex}
+    .nav-links{display:none}
+    .nav-mobile-menu{display:block}
+  }
+  @media(max-width:480px){.container{padding:0 18px}}
 
   /* HERO */
   .hero{
@@ -244,6 +264,24 @@
       <a href="/limpieza-san-jose.html" class="nav-link">San José</a>
       <a href="/limpieza-pozo-de-los-frailes.html" class="nav-link">Pozo de los Frailes</a>
       <a href="/sobre-rosario.html" class="nav-link active">Sobre Rosario</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span class="hb"></span>
+      <span class="hb"></span>
+      <span class="hb"></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobileMenu" aria-hidden="true">
+    <div class="nmm-inner">
+      <a href="/" class="nmm-link">Inicio</a>
+      <a href="/limpieza-san-jose.html" class="nmm-link">San José</a>
+      <a href="/limpieza-pozo-de-los-frailes.html" class="nmm-link">Pozo de los Frailes</a>
+      <a href="/sobre-rosario.html" class="nmm-link active">Sobre Rosario</a>
+      <div class="nmm-sep"></div>
+      <a href="https://wa.me/34616255553?text=Hola%20Rosario%2C%20he%20visto%20tu%20web%20y%20quiero%20pedir%20presupuesto%20para%20la%20limpieza%20de%20un%20apartamento%20tur%C3%ADstico%20en%20San%20Jos%C3%A9%20o%20Pozo%20de%20los%20Frailes." class="nmm-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir presupuesto
+      </a>
     </div>
   </div>
 </nav>
@@ -443,5 +481,31 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var btn  = document.getElementById('navHamburger');
+  var menu = document.getElementById('navMobileMenu');
+  if(!btn||!menu) return;
+  var close = function(){
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    menu.setAttribute('aria-hidden','true');
+  };
+  btn.addEventListener('click', function(){
+    var isOpen = menu.classList.contains('open');
+    if(isOpen){close();return;}
+    btn.classList.add('open');
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    menu.setAttribute('aria-hidden','false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!menu.contains(e.target)) close();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') close();});
+})();
+</script>
 </body>
 </html>
