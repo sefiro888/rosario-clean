@@ -2949,22 +2949,26 @@
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
-  // Hero parallax
+  // Hero parallax (solo en desktop — en móvil deja hueco feo)
   (function () {
     const hero = document.querySelector('.hero');
     const img  = document.querySelector('.hero-image img');
     if (!img || !hero) return;
+    const mq = window.matchMedia('(min-width: 881px)');
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        if (hero.getBoundingClientRect().bottom > 0) {
+        if (mq.matches && hero.getBoundingClientRect().bottom > 0) {
           img.style.transform = 'translateY(' + (window.scrollY * 0.18) + 'px) scale(1.12)';
         }
         ticking = false;
       });
     };
+    const reset = () => { if (!mq.matches) img.style.transform = ''; };
+    mq.addEventListener('change', reset);
+    reset();
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
 
