@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
