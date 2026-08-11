@@ -14,11 +14,16 @@
 ```
 C:\Users\sefir\Documents\Rosario-Clean\
 ├── index.html                          ← Web principal (todo en un archivo)
+├── servicios.html                      ← Página de servicios en detalle
+├── resultados.html                     ← Antes/después + opiniones + valoraciones
 ├── sobre-rosario.html                  ← Página "Sobre Rosario"
 ├── limpieza-san-jose.html              ← Landing page SEO San José
 ├── limpieza-pozo-de-los-frailes.html   ← Landing page SEO Pozo de los Frailes
+├── css/base.css                        ← Sistema de diseño compartido
+├── js/nav.js                           ← Nav común (páginas secundarias)
+├── js/comparador.js                    ← Sliders antes/después
 ├── robots.txt                          ← Apunta a www.rosario-clean.es
-├── sitemap.xml                         ← 4 URLs indexadas
+├── sitemap.xml                         ← 6 URLs indexadas
 ├── MEMORIA_PROYECTO.md                 ← Este archivo
 └── imagenes/                           ← 32 fotos comprimidas (~40% menos peso)
     ├── rosario.jpeg ... rosario7.jpeg
@@ -32,8 +37,26 @@ C:\Users\sefir\Documents\Rosario-Clean\
 ```
 
 ## Repositorio GitHub
-- **Repo:** sefiro888/rosario-limpio (o similar)
+- **Repo:** sefiro888/rosario-limpio (o similar) — pendiente de confirmar y conectar
 - **Deploy:** GitHub Pages → www.rosario-clean.es
+- **Git local:** desde el 11/08/2026 la carpeta tiene repositorio propio (antes heredaba
+  el del directorio de usuario, que estaba vinculado a `Fichajes` y se eliminó).
+
+---
+
+## Reglas editoriales (IMPORTANTE)
+1. **Zonas:** solo San José y Pozo de los Frailes. Nunca añadir otras localidades.
+2. **Valoraciones de Booking:** las notas globales (9,3 / 9,1) son **del alojamiento**,
+   no de Rosario Clean, y dependen también de ubicación, confort e instalaciones.
+   Solo puede atribuirse la **categoría "Limpieza"** (9,8 y 9,3), siempre citando que
+   procede de fichas públicas de Booking de alojamientos que se limpian.
+   **Nunca** marcar `aggregateRating` en schema.org con esas notas: Google penaliza
+   el marcado de valoraciones que no son del negocio.
+3. **Mensajes de propietarios:** publicados de forma anónima ("Propietario en San José").
+   No usar capturas de WhatsApp con nombre, foto o teléfono sin permiso expreso.
+4. **Opiniones de huéspedes:** son públicas en Booking; se citan con nombre de pila
+   y tipo de viaje, tal como aparecen allí.
+5. No inventar testimonios, cifras ni valoraciones.
 
 ---
 
@@ -124,12 +147,16 @@ URL: `wa.me/34616255553?text=Hola%20Rosario%2C%20he%20visto%20tu%20web...`
 ---
 
 ## Pendiente (no hecho aún)
+0. **PUBLICAR** — todo lo de agosto de 2026 está solo en local. La web en producción
+   sigue mostrando la versión de junio (le falta "Apartamentos que cuidamos", el retrato,
+   las páginas de servicios y resultados, y la nav unificada).
 1. **Google Business Profile** — Rosario debe crearlo desde su móvil en business.google.com
    - Categoría: Servicio de limpieza del hogar
    - Zona: San José + Pozo de los Frailes
    - Verificar por SMS/vídeo
 2. **Reseñas Google** — Pedir a Anna y Jörn (carta manuscrita que tienen)
-3. **Foto de Rosario** — para la sección "Sobre Rosario" (actualmente solo monograma R)
+3. **Permiso de los propietarios** — pedir a los dos propietarios cuyos mensajes de
+   WhatsApp se citan (anónimos) en resultados.html
 4. **Más testimonios** — pedir a otros clientes
 5. **Instagram** — publicar fotos antes/después con hashtags locales
 6. **Directorios locales** — Páginas Amarillas, Yelp, Habitissimo (gratis)
@@ -155,6 +182,10 @@ URL: `wa.me/34616255553?text=Hola%20Rosario%2C%20he%20visto%20tu%20web...`
 ---
 
 ## Historial de cambios importantes
+- **Agosto 2026:** retrato real de Rosario sustituyendo el monograma (index y sobre-rosario);
+  CSS común extraído a `css/base.css`; navegación unificada con desplegable de zonas,
+  página activa marcada y migas de pan; nuevas páginas `servicios.html` y `resultados.html`;
+  sitemap ampliado a 6 URLs.
 - Zonas corregidas múltiples veces → SOLO San José y Pozo de los Frailes
 - Teléfono cambiado de 634149607 → **616 25 55 53**
 - Tarifas cambiadas de packs (Esencial/Completo/Premium) → por tipo de alojamiento
