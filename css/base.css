@@ -232,12 +232,14 @@ header.nav{
 .crumbs li+li::before{content:'›';margin-right:8px;color:var(--sage)}
 .crumbs [aria-current="page"]{color:var(--text);font-weight:600}
 
-/* ---------- Pie ---------- */
-footer{background:var(--green-dark);color:rgba(251,247,236,.75);padding:50px 0 30px;text-align:center}
-footer .brand-name{color:var(--cream)}
-footer .footer-bottom{margin-top:30px;padding-top:24px;border-top:1px solid rgba(251,247,236,.12);font-size:.86rem}
-footer a{color:var(--gold-light);transition:color .2s}
-footer a:hover{color:#fff}
+/* ---------- Pie ----------
+   Acotado a hijo directo de <body>: <footer> también se usa dentro de
+   blockquote/article para firmar contenido, y no debe heredar estos estilos. */
+body > footer{background:var(--green-dark);color:rgba(251,247,236,.75);padding:50px 0 30px;text-align:center}
+body > footer .brand-name{color:var(--cream)}
+body > footer .footer-bottom{margin-top:30px;padding-top:24px;border-top:1px solid rgba(251,247,236,.12);font-size:.86rem}
+body > footer a{color:var(--gold-light);transition:color .2s}
+body > footer a:hover{color:#fff}
 .footer-link{
   background:none;border:none;color:var(--gold-light);
   font:inherit;font-size:.86rem;cursor:pointer;padding:0;

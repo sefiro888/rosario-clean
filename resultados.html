@@ -152,6 +152,33 @@
 
   /* PROPIETARIOS */
   .props{background:var(--cream)}
+  .prop-destacada{
+    max-width:800px;margin:0 auto 44px;text-align:center;
+    background:linear-gradient(150deg,var(--green-dark) 0%,#253d1e 100%);
+    border-radius:var(--radius-lg);padding:48px 40px 40px;
+    box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+  }
+  .prop-destacada::before{
+    content:'\201C';position:absolute;top:-18px;left:24px;
+    font-family:'Cormorant Garamond',serif;font-size:9rem;
+    color:rgba(212,185,140,.16);line-height:1;pointer-events:none;
+  }
+  @media(max-width:560px){.prop-destacada{padding:36px 24px 30px}}
+  .prop-destacada-texto{
+    position:relative;font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(1.4rem,3.2vw,2.1rem);color:var(--cream);
+    line-height:1.4;margin-bottom:20px;
+  }
+  .prop-destacada-texto em{font-style:italic;color:var(--gold-light);font-weight:600}
+  .prop-destacada-autor{
+    font-size:.76rem;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--gold-light);font-weight:600;
+  }
+  .prop-destacada-nota{
+    color:rgba(251,247,236,.6);font-size:.92rem;line-height:1.7;
+    max-width:480px;margin:22px auto 0;
+    padding-top:20px;border-top:1px solid rgba(212,185,140,.2);
+  }
   .props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
   @media(max-width:820px){.props-grid{grid-template-columns:1fr;max-width:520px}}
   .prop-card{
@@ -463,6 +490,24 @@
         <p class="op-texto">La ubicación era perfecta. Limpieza 10. Atención un 10.</p>
         <footer class="op-autor">Elena · viaje en familia</footer>
       </blockquote>
+
+      <blockquote class="op-card fade-in">
+        <div class="op-quote">&ldquo;</div>
+        <p class="op-texto">Todo muy limpia y con todas las comodidad, muy cerca de la playa y personal encantador. Sin duda volveré a repetir.</p>
+        <footer class="op-autor">Martínez · viaje en familia</footer>
+      </blockquote>
+
+      <blockquote class="op-card fade-in">
+        <div class="op-quote">&ldquo;</div>
+        <p class="op-texto">Limpieza y cercanía a las tiendas. Muy bonito y bien equipado.</p>
+        <footer class="op-autor">Alonss · viaje en pareja</footer>
+      </blockquote>
+
+      <blockquote class="op-card fade-in">
+        <div class="op-quote">&ldquo;</div>
+        <p class="op-texto">La vivienda estaba muy bien y cerquita de la playa. Muy cómodo. Hemos descansado unos días en familia como si hubiésemos estado en nuestra propia casa.</p>
+        <footer class="op-autor">Darío · viaje en familia</footer>
+      </blockquote>
     </div>
   </div>
 </section>
@@ -476,6 +521,17 @@
       <p>Mensajes recibidos de propietarios de alojamientos de la zona.</p>
     </div>
 
+    <blockquote class="prop-destacada fade-in">
+      <p class="prop-destacada-texto">
+        El año que viene tenemos que hacer trato <em>para darte todas las casas</em>.
+      </p>
+      <div class="prop-destacada-autor">Propietario con varios alojamientos en la zona</div>
+      <p class="prop-destacada-nota">
+        Es el mejor indicador que existe en este oficio: quien ya conoce el trabajo
+        no busca otra persona, busca darle más.
+      </p>
+    </blockquote>
+
     <div class="props-grid">
       <div class="prop-card fade-in">
         <p class="prop-texto">&ldquo;Como siempre, una máquina.&rdquo;</p>
@@ -486,8 +542,20 @@
         <div class="prop-autor">Propietario en la zona</div>
       </div>
       <div class="prop-card fade-in">
-        <p class="prop-texto">&ldquo;El año que viene tenemos que hacer trato para darte todas las casas.&rdquo;</p>
-        <div class="prop-autor">Propietario con varios alojamientos</div>
+        <p class="prop-texto">&ldquo;Hay muy poquita gente que limpie bien, haciéndolo como lo hacéis.&rdquo;</p>
+        <div class="prop-autor">Propietario en la zona</div>
+      </div>
+      <div class="prop-card fade-in">
+        <p class="prop-texto">&ldquo;Gracias a ti, jefa, por estar pendiente.&rdquo;</p>
+        <div class="prop-autor">Propietario en San José</div>
+      </div>
+      <div class="prop-card fade-in">
+        <p class="prop-texto">&ldquo;Aunque hablaran mal de vosotras, cosa que no va a pasar, seguirían buscándote.&rdquo;</p>
+        <div class="prop-autor">Propietario en la zona</div>
+      </div>
+      <div class="prop-card fade-in">
+        <p class="prop-texto">&ldquo;Somos eficaces al más no poder. Así se trabaja a gusto.&rdquo;</p>
+        <div class="prop-autor">Coordinación con un propietario</div>
       </div>
     </div>
   </div>

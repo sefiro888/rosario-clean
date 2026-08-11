@@ -98,25 +98,32 @@
   .srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
   @media(max-width:860px){.srv-grid{grid-template-columns:1fr}}
   .srv-card{
-    background:#fff;border-radius:var(--radius-lg);padding:34px 32px 30px;
+    background:#fff;border-radius:var(--radius-lg);
     border:1px solid rgba(74,98,56,.09);box-shadow:var(--shadow-sm);
-    transition:transform .25s, box-shadow .25s, border-color .25s;position:relative;overflow:hidden;
+    transition:transform .25s, box-shadow .25s, border-color .25s;
+    position:relative;overflow:hidden;display:flex;flex-direction:column;
   }
-  .srv-card::before{
-    content:'';position:absolute;top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg,var(--sage),var(--gold));
-    transform:scaleX(0);transform-origin:left;transition:transform .35s;
+  .srv-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(143,161,118,.4)}
+  .srv-foto{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--beige)}
+  .srv-foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .srv-card:hover .srv-foto img{transform:scale(1.05)}
+  .srv-foto::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(26,42,20,.42) 0%,rgba(26,42,20,.05) 42%,rgba(26,42,20,.22) 100%);
   }
-  .srv-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:rgba(143,161,118,.4)}
-  .srv-card:hover::before{transform:scaleX(1)}
   .srv-num{
-    font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;
-    color:rgba(143,161,118,.32);line-height:1;margin-bottom:8px;display:block;
+    position:absolute;top:16px;left:18px;z-index:2;
+    font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;
+    color:var(--gold-light);line-height:1;
+    text-shadow:0 2px 12px rgba(0,0,0,.5);
   }
   .srv-card h2{
+    position:absolute;bottom:18px;left:22px;right:22px;z-index:2;
     font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;
-    color:var(--green-dark);margin-bottom:12px;line-height:1.25;
+    color:var(--cream);line-height:1.22;margin:0;
+    text-shadow:0 2px 14px rgba(0,0,0,.55);
   }
+  .srv-cuerpo{padding:26px 30px 30px;display:flex;flex-direction:column;flex:1}
   .srv-card p{color:var(--muted);font-size:.97rem;line-height:1.75;margin-bottom:18px}
   .srv-list{list-style:none;display:flex;flex-direction:column;gap:9px}
   .srv-list li{
@@ -146,6 +153,66 @@
   .alcance-nota{
     text-align:center;color:var(--muted);font-size:.92rem;
     max-width:620px;margin:26px auto 0;line-height:1.7;
+  }
+
+  /* QUIÉN LO HACE */
+  .quien{background:var(--cream)}
+  .quien-grid{
+    display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;
+    max-width:900px;margin:0 auto;
+  }
+  @media(max-width:760px){.quien-grid{grid-template-columns:1fr;gap:28px;text-align:center;justify-items:center}}
+  .quien-foto{
+    position:relative;width:clamp(150px,20vw,192px);aspect-ratio:1;
+    border-radius:50%;flex-shrink:0;
+    box-shadow:0 10px 34px rgba(47,75,42,.24), 0 0 0 5px var(--cream), 0 0 0 8px rgba(184,149,106,.42);
+  }
+  .quien-foto img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 42%;display:block}
+  .quien-foto::after{
+    content:'';position:absolute;inset:0;border-radius:50%;pointer-events:none;
+    background:
+      radial-gradient(circle at 50% 46%, rgba(47,75,42,0) 50%, rgba(47,75,42,.34) 86%, rgba(47,75,42,.54) 100%),
+      linear-gradient(135deg, rgba(47,75,42,.34) 0%, rgba(47,75,42,.10) 26%, rgba(47,75,42,0) 46%);
+  }
+  .quien-texto h2{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);
+    font-weight:700;color:var(--green-dark);line-height:1.22;margin:10px 0 16px;
+  }
+  .quien-texto p{color:var(--muted);font-size:1rem;line-height:1.78;margin-bottom:14px}
+  .quien-texto strong{color:var(--green-dark);font-weight:600}
+  .quien-enlace{
+    display:inline-flex;align-items:center;gap:7px;
+    color:var(--green);font-weight:600;font-size:.94rem;
+    text-decoration:underline;text-underline-offset:4px;transition:color .2s;
+  }
+  .quien-enlace:hover{color:var(--green-dark)}
+
+  /* PRUEBA SOCIAL */
+  .prueba{
+    background:linear-gradient(135deg,var(--green-dark) 0%,#253d1e 100%);
+    color:var(--cream);text-align:center;
+  }
+  .prueba-cita{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:clamp(1.35rem,3vw,2rem);line-height:1.45;
+    max-width:760px;margin:0 auto 18px;
+  }
+  .prueba-cita em{font-style:italic;color:var(--gold-light);font-weight:600}
+  .prueba-autor{
+    font-size:.76rem;text-transform:uppercase;letter-spacing:.18em;
+    color:var(--gold-light);font-weight:600;margin-bottom:32px;
+  }
+  .prueba-datos{
+    display:flex;justify-content:center;gap:56px;flex-wrap:wrap;
+    padding-top:32px;border-top:1px solid rgba(212,185,140,.22);max-width:700px;margin:0 auto;
+  }
+  .prueba-dato .valor{
+    font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;
+    color:var(--gold-light);line-height:1;
+  }
+  .prueba-dato .etiqueta{
+    font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;
+    color:rgba(251,247,236,.62);margin-top:8px;
   }
 
   /* PROCESO */
@@ -294,8 +361,15 @@
 
     <div class="srv-grid">
       <article class="srv-card fade-in">
-        <span class="srv-num">01</span>
-        <h2>Limpieza completa entre huéspedes</h2>
+        <div class="srv-foto">
+          <picture>
+            <source srcset="imagenes/srv/srv-limpieza.webp" type="image/webp">
+            <img src="imagenes/srv/srv-limpieza.jpeg" width="720" height="480" loading="lazy" decoding="async" alt="Cocina de apartamento turístico recién limpiada en San José">
+          </picture>
+          <span class="srv-num">01</span>
+          <h2>Limpieza completa entre huéspedes</h2>
+        </div>
+        <div class="srv-cuerpo">
         <p>
           El apartamento se deja como si nadie hubiera estado antes. Se limpia a fondo cocina, baños,
           dormitorios y zonas comunes, incluidos los rincones que se acumulan en temporada alta: juntas de la
@@ -308,11 +382,19 @@
           <li>Polvo en muebles, estanterías, lámparas y rodapiés</li>
           <li>Ventilación y retirada de basura</li>
         </ul>
+        </div>
       </article>
 
       <article class="srv-card fade-in">
-        <span class="srv-num">02</span>
-        <h2>Cambio de sábanas y toallas</h2>
+        <div class="srv-foto">
+          <picture>
+            <source srcset="imagenes/srv/srv-lenceria.webp" type="image/webp">
+            <img src="imagenes/srv/srv-lenceria.jpeg" width="720" height="480" loading="lazy" decoding="async" alt="Dormitorio con sábanas y toallas limpias preparado para los huéspedes">
+          </picture>
+          <span class="srv-num">02</span>
+          <h2>Cambio de sábanas y toallas</h2>
+        </div>
+        <div class="srv-cuerpo">
         <p>
           La lencería se renueva en cada estancia y se presenta con cuidado, porque es lo primero que toca
           un huésped al llegar. Las camas se hacen con las esquinas rematadas y las toallas se doblan
@@ -325,11 +407,19 @@
           <li>Lavadora puesta en el propio alojamiento cuando dispone de ella</li>
           <li>Aviso al propietario si la lencería está desgastada o manchada</li>
         </ul>
+        </div>
       </article>
 
       <article class="srv-card fade-in">
-        <span class="srv-num">03</span>
-        <h2>Preparación del check-in</h2>
+        <div class="srv-foto">
+          <picture>
+            <source srcset="imagenes/srv/srv-checkin.webp" type="image/webp">
+            <img src="imagenes/srv/srv-checkin.jpeg" width="720" height="480" loading="lazy" decoding="async" alt="Salón de apartamento vacacional preparado para el check-in">
+          </picture>
+          <span class="srv-num">03</span>
+          <h2>Preparación del check-in</h2>
+        </div>
+        <div class="srv-cuerpo">
         <p>
           Una vez limpio, el apartamento se deja preparado para recibir. Es la diferencia entre entrar en
           un sitio limpio y entrar en un sitio que parece esperarte: persianas en su punto, temperatura
@@ -342,11 +432,19 @@
           <li>Detalle de bienvenida si el propietario lo proporciona</li>
           <li>Última pasada visual antes de cerrar</li>
         </ul>
+        </div>
       </article>
 
       <article class="srv-card fade-in">
-        <span class="srv-num">04</span>
-        <h2>Gestión de llaves y accesos</h2>
+        <div class="srv-foto">
+          <picture>
+            <source srcset="imagenes/srv/srv-llaves.webp" type="image/webp">
+            <img src="imagenes/srv/srv-llaves.jpeg" width="720" height="480" loading="lazy" decoding="async" alt="Apartamento turístico en San José listo para entregar las llaves">
+          </picture>
+          <span class="srv-num">04</span>
+          <h2>Gestión de llaves y accesos</h2>
+        </div>
+        <div class="srv-cuerpo">
         <p>
           Entrega y recogida de llaves para que la disponibilidad del alojamiento no dependa de la agenda
           personal del propietario. Especialmente útil para quien no vive en la zona o tiene varias
@@ -358,11 +456,19 @@
           <li>Uso de cajas de seguridad o cerraduras con código si las hay</li>
           <li>Aviso inmediato ante cualquier incidencia de acceso</li>
         </ul>
+        </div>
       </article>
 
       <article class="srv-card fade-in">
-        <span class="srv-num">05</span>
-        <h2>Revisión final y reporte</h2>
+        <div class="srv-foto">
+          <picture>
+            <source srcset="imagenes/srv/srv-revision.webp" type="image/webp">
+            <img src="imagenes/srv/srv-revision.jpeg" width="720" height="480" loading="lazy" decoding="async" alt="Baño revisado y desinfectado tras la limpieza">
+          </picture>
+          <span class="srv-num">05</span>
+          <h2>Revisión final y reporte</h2>
+        </div>
+        <div class="srv-cuerpo">
         <p>
           Antes de cerrar la puerta se revisa el alojamiento entero. Si algo está roto, falta o no funciona,
           el propietario lo sabe con fotos antes de que llegue el siguiente huésped, no después por una
@@ -374,11 +480,19 @@
           <li>Aviso de desperfectos, roturas o cosas que faltan</li>
           <li>Recordatorio cuando se agota algún consumible</li>
         </ul>
+        </div>
       </article>
 
       <article class="srv-card fade-in">
-        <span class="srv-num">06</span>
-        <h2>Disponibilidad y última hora</h2>
+        <div class="srv-foto">
+          <picture>
+            <source srcset="imagenes/srv/srv-disponibilidad.webp" type="image/webp">
+            <img src="imagenes/srv/srv-disponibilidad.jpeg" width="720" height="480" loading="lazy" decoding="async" alt="Terraza de alojamiento vacacional en San José">
+          </picture>
+          <span class="srv-num">06</span>
+          <h2>Disponibilidad y última hora</h2>
+        </div>
+        <div class="srv-cuerpo">
         <p>
           En San José el verano se llena de reservas cortas y cambios de última hora. Rosario Clean trabaja
           todo el año en la zona, así que una salida imprevista o una reserva que entra con pocas horas de
@@ -390,6 +504,7 @@
           <li>Servicio durante todo el año, también fuera de temporada</li>
           <li>Adaptación a cambios de última hora según disponibilidad</li>
         </ul>
+        </div>
       </article>
     </div>
   </div>
@@ -434,6 +549,61 @@
       Algunos de estos trabajos pueden hacerse igualmente como servicio aparte, presupuestados por separado.
       Si tienes una necesidad concreta, lo mejor es preguntarla directamente.
     </p>
+  </div>
+</section>
+
+<!-- QUIÉN LO HACE -->
+<section class="quien">
+  <div class="container">
+    <div class="quien-grid">
+      <figure class="quien-foto fade-in">
+        <picture>
+          <source srcset="imagenes/rosario-retrato.webp" type="image/webp">
+          <img src="imagenes/rosario-retrato.jpeg" width="640" height="640" loading="lazy" decoding="async"
+               alt="Rosario, responsable de Rosario Clean, limpieza de apartamentos turísticos en San José">
+        </picture>
+      </figure>
+      <div class="quien-texto fade-in">
+        <span class="eyebrow">Quién hace el trabajo</span>
+        <h2>Siempre la misma persona, en tu apartamento</h2>
+        <p>
+          Todos estos servicios los presta <strong>Rosario</strong>, que vive y trabaja en la zona
+          durante todo el año. No hay rotación de personal ni subcontratas: quien entra hoy en tu
+          apartamento es quien entró la última vez y sabe dónde va cada cosa.
+        </p>
+        <p>
+          Eso importa más de lo que parece. Significa que se detecta cuando algo ha cambiado,
+          que no hay que explicar de nuevo dónde está el cuadro de luces, y que las llaves
+          están siempre en las mismas manos.
+        </p>
+        <a href="sobre-rosario.html" class="quien-enlace">Conocer a Rosario →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRUEBA SOCIAL -->
+<section class="prueba">
+  <div class="container">
+    <p class="prueba-cita">
+      &ldquo;El año que viene tenemos que hacer trato <em>para darte todas las casas</em>.&rdquo;
+    </p>
+    <div class="prueba-autor">Propietario con varios alojamientos en la zona</div>
+
+    <div class="prueba-datos">
+      <div class="prueba-dato">
+        <div class="valor">9,8</div>
+        <div class="etiqueta">Limpieza en Booking</div>
+      </div>
+      <div class="prueba-dato">
+        <div class="valor">+50</div>
+        <div class="etiqueta">Apartamentos atendidos</div>
+      </div>
+      <div class="prueba-dato">
+        <div class="valor">12</div>
+        <div class="etiqueta">Meses al año</div>
+      </div>
+    </div>
   </div>
 </section>
 
